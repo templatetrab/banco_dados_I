@@ -41,9 +41,6 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 >> ##### Observações: <br> a) perceba que este relatório pode conter linhas com alguns dados repetidos (mas não todos). <br>  b) para os empregados que não possuirem alguma destas informações o valor no registro deve aparecer sem informação/nulo. 
 * Relatório que obtenha a frequencia absoluta e frequencia relativa da quantidade de cpfs únicos no relatório anterior. Apresente os resultados ordenados de forma decrescente pela frequencia relativa.
 
- 
-
-# <10 pts>    
     
 ### 5.MODELO CONCEITUAL<br>
     A) Utilizar a Notação adequada (Preferencialmente utilizar o BR Modelo 3)
@@ -69,7 +66,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
     CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
 
-># Marco de Entrega 01: Do item 1 até o item 5.2<br>
+># Marco de Entrega 01: Do item 1 até o item 5.2 (5 PTS) <br> 
 
 ### 6	MODELO LÓGICO<br>
         a) inclusão do esquema lógico do banco de dados
@@ -104,7 +101,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
     a) Criar outras 5 consultas que envolvam like ou ilike
     b) Criar uma consulta para cada tipo de função data apresentada.
 
-># Marco de Entrega 02: Do item 6. até o item 9.1<br>
+># Marco de Entrega 02: Do item 6. até o item 9.1 (5 PTS) <br>
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
@@ -128,7 +125,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
      a) Criar minimo 1 envolvendo GROUP BY
      b) Criar minimo 1 envolvendo algum tipo de junção
 
-># Marco de Entrega 03: Do item 9.2 até o ítem 9.10<br>
+># Marco de Entrega 03: Do item 9.2 até o ítem 9.10 (10 PTS)<br>
 
 ### 10 RELATÓRIOS E GRÁFICOS
 
@@ -143,7 +140,7 @@ Sugestão: https://balsamiq.com/products/mockups/<br>
 #### a) Modelo (pecha kucha)<br>
 #### b) Tempo de apresentação 6:40 
 
-># Marco de Entrega 03: Itens 10 e 11<br>
+># Marco de Entrega 04: Itens 10 e 11 (20 PTS) <br>
 <br>
 <br>
 
