@@ -1,12 +1,14 @@
-# TRABALHO 01:  Título do Trabalho
+# TRABALHO 01:  Sistema rodoviário
 Trabalho desenvolvido durante a disciplina de BD1
 
 # Sumário
 
 ### 1. COMPONENTES<br>
 Integrantes do grupo<br>
-primeiro_componente_do_grupo:email_primeiro_componente@dominio.com<br>
-segundo_componente_do_grupo:email_segundo_componente@dominio.com<br>
+Erick Gama Loyola:gamaerick027@gmail.com<br>
+Rodolfo Luiz de Oliveira:rodolfoliveira99@gmail.com<br>
+Lara Aguilar:lara.aguilaramorim@gmail.com<br>
+João Marcos Pimentel:trabalhos.jmr25@gmail.com<br>
 ...<br>
 
 
@@ -18,7 +20,16 @@ Descrição textual das regras de negócio definidas como um  subconjunto do mun
 cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
 gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
-> O sistema proposto para a "Devcom Projetos conterá as informacões aqui detalhadas. Dos Projetos serão armazenados o número, nome e cidade. Dos Departamentos serão armazenados o número e nome. O cliente destacou que cada projeto pode ter vários departamentos auxiliando no seu desenvolvimento, e cada departamento pode estar envolvido em vários projetos. Os dados relativos aos empregados que serão armazenados são: rg, nome, cpf, salário, data inicial do salario e supervisor de cada empregado. É importante destacar que cada empregado pode ser supervisionado por outro empregado, e obrigatoriamente deve estar alocado a um único departamento, mas pode gerenciar vários departamentos ou não gerenciar nenhum. Um empregado também pode participar de vários projetos, caso seja necessário, mas não precisa obrigatoriamente estar alocado em algum projeto. Com relação aos dependentes serão armazenadas as informações de nome do dependente, data de nascimento, sexo e grau de parentesco. Cada empregado pode ter vários dependentes, mas um dependente esta associado apenas a um único empregado. Com relação ao histórico de salário devemos armazenar as informações de valor do salário, data de início do salário no período e data final do salário no período. É importante lembrar que cada funcionario pode ter diversos eventos de histórico de salário associados a ele visto que este dado pode ser alterado várias vezes. 
+A empresa de viagens intermunicipal tem vários ônibus que fazem rotas diferentes. Os ônibus devem conter  número do chassi, quantidade de assentos, tamanho (micro-ônibus, ônibus), equipamentos disponíveis (ar condicionado, internet, banheiro) e tipos de leito (executivo, semi leito, leito cama e convencional). 
+Cada viagem de um ônibus tem a origem e o destino, o horário de embarque, a distância da viagem (em km), e o tempo (em horas).
+Cada viagem tem várias paradas contendo nome, cidade e bairro, onde podem embarcar ou desembarcar passageiros.
+A passagem deve conter o número do assento, o nome do passageiro, a origem e o destino identificando a parada, se for o caso, ou o destino final. A passagem só pode
+ser relacionada a um assento e o assento daquela viagem, só pode ser relacionado àquela passagem.
+A empresa precisa acompanhar a venda de passagens e saber os lugares que estarão vagos em cada parada de um determinado ônibus da sua frota.
+A venda das passagens pode ser realizada através da plataforma de terceiros, principalmente a plataforma buser, que será integrada ao sistema da empresa de viagens. 
+O vendedor, que venderá apenas fisicamente, poderá somente vender as passagens, enquanto o diretor financeiro têm acesso somente ao histórico de vendas e relatórios financeiros. 
+
+
 
 ### 3.PERGUNTAS A SEREM RESPONDIDAS<br>
 #### 3.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
