@@ -18,15 +18,11 @@ Descrição textual das regras de negócio definidas como um  subconjunto do mun
 cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
 gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
-> Uma plataforma de tutoria busca reunir pessoas qualificadas em uma ampla variedade de assuntos e aquelas que desejam se especializar nesses temas. Para atingir esse objetivo, a plataforma precisa de um sistema que possa agrupar essas pessoas em salas de tutoria, onde poderão colaborar e se ajudar mutuamente durante o período de tutoria. Além disso, os tutores devem ser capazes de disponibilizar conteúdo para os alunos, e todos os participantes devem poder se comunicar por meio de um chat de texto, áudio e vídeo.
-
-Para isso, cada usuário deverá ter: ID, nome, e-mail, telefone (se houver) e senha. Dentro dos usuários, teremos alunos/tutores, que terão os mesmos atributos de usuários, além de conterem assuntos de interesse, nível de conhecimento em cada um dos temas, salas nas quais eles são participantes e pontuação, que será dada como recompensa por ajudar outras pessoas dentro da plataforma. Além disso, teremos também funcionários, que terão os mesmos atributos de usuários, além de matrícula e salário.
-
-Em relação aos temas, cada tema da plataforma deverá ter um ID, assunto abordado e categoria à qual esse tema pertence. As salas criadas deverão também conter um ID, lista de usuários e tema abordado na sala, além de material complementar disponibilizado, se houver.
-
-Além disso, a plataforma terá um acervo público, onde os próprios usuários vão poder alimentá-lo com publicações. Os conteúdos publicados deverão ser curados por usuários administradores da plataforma, que são os funcionários. O acervo deverá ter um ID e a lista de publicações. Cada publicação deve ter um ID próprio, seu autor e tema abordado.
-
-Por fim, haverá também uma loja onde os usuários poderão trocar pontos, obtidos ao ministrar tutoria e publicar no acervo da plataforma, por brindes. Sendo assim, a loja deverá ter um ID e uma lista de produtos. Cada produto deverá ter um ID, nome e valor.<
+>	Uma plataforma de tutoria busca reunir pessoas qualificadas em uma ampla variedade de assuntos e aquelas que desejam se especializar nesses temas. Para atingir esse objetivo, a plataforma precisa de um sistema que possa agrupar essas pessoas em salas de tutoria, onde poderão colaborar e se ajudar mutuamente durante o período de tutoria. Além disso, os tutores devem ser capazes de disponibilizar conteúdo para os alunos, e todos os participantes devem poder se comunicar por meio de um chat de texto, áudio e vídeo.<br>
+	Para isso, cada usuário deverá ter: ID, nome, e-mail, telefone (se houver) e senha. Dentro dos usuários, teremos alunos/tutores, que terão os mesmos atributos de usuários, além de conterem assuntos de interesse, nível de conhecimento em cada um dos temas, salas nas quais eles são participantes e pontuação, que será dada como recompensa por ajudar outras pessoas dentro da plataforma. Além disso, teremos também funcionários, que terão os mesmos atributos de usuários, além de matrícula e salário.<br>
+	Em relação aos temas, cada tema da plataforma deverá ter um ID, assunto abordado e categoria à qual esse tema pertence. As salas criadas deverão também conter um ID, lista de usuários e tema abordado na sala, além de material complementar disponibilizado, se houver.<br>
+	Além disso, a plataforma terá um acervo público, onde os próprios usuários vão poder alimentá-lo com publicações. Os conteúdos publicados deverão ser curados por usuários administradores da plataforma, que são os funcionários. O acervo deverá ter um ID e a lista de publicações. Cada publicação deve ter um ID próprio, seu autor e tema abordado.<br>
+	Por fim, haverá também uma loja onde os usuários poderão trocar pontos, obtidos ao ministrar tutoria e publicar no acervo da plataforma, por brindes. Sendo assim, a loja deverá ter um ID e uma lista de produtos. Cada produto deverá ter um ID, nome e valor.
 
 ### 3.PERGUNTAS A SEREM RESPONDIDAS<br>
 #### 3.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
