@@ -5,9 +5,12 @@ Trabalho desenvolvido durante a disciplina de BD1
 
 ### 1. COMPONENTES<br>
 Integrantes do grupo<br>
-primeiro_componente_do_grupo:email_primeiro_componente@dominio.com<br>
+Abner Benicio: abnerbeniciosilva123@gmail.com<br>
+Pedro Henrique: pedrohtbernabe@gmail.com
+Pedro Lucas: pedroluxa871632@gmail.com
+Vinícius Caetano: viniciusgcaetano@hotmail.com
 segundo_componente_do_grupo:email_segundo_componente@dominio.com<br>
-...<br>
+<br>
 
 
 ### 2.MINI-MUNDO<br>
