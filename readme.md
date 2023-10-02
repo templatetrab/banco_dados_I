@@ -26,7 +26,7 @@ Em relação aos temas, cada tema da plataforma deverá ter um ID, assunto abord
 
 Além disso, a plataforma terá um acervo público, onde os próprios usuários vão poder alimentá-lo com publicações. Os conteúdos publicados deverão ser curados por usuários administradores da plataforma, que são os funcionários. O acervo deverá ter um ID e a lista de publicações. Cada publicação deve ter um ID próprio, seu autor e tema abordado.
 
-Por fim, haverá também uma loja onde os usuários poderão trocar pontos, obtidos ao ministrar tutoria e publicar no acervo da plataforma, por brindes. Sendo assim, a loja deverá ter um ID e uma lista de produtos. Cada produto deverá ter um ID, nome e valor. 
+Por fim, haverá também uma loja onde os usuários poderão trocar pontos, obtidos ao ministrar tutoria e publicar no acervo da plataforma, por brindes. Sendo assim, a loja deverá ter um ID e uma lista de produtos. Cada produto deverá ter um ID, nome e valor.<
 
 ### 3.PERGUNTAS A SEREM RESPONDIDAS<br>
 #### 3.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
