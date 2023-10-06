@@ -54,7 +54,7 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
  
 #### 5.1 Validação do Modelo Conceitual
     [Grupo01]: Gustavo, Cassiano e Henrique
-    [Grupo02]: 
+    [Grupo02]: Bruno, Giovanna, Felipe Suhett e Jéssica
 
 #### 5.2 Descrição dos dados 
     [objeto]: [descrição do objeto]
