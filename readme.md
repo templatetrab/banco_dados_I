@@ -58,7 +58,8 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
         Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
         e tuplas falsas (Aplicar os conceitos de normalização abordados).   
         
-![Alt text](https://github.com/discipbd1/trab01/blob/master/images/concept_sample.png?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/4a6ac587-5695-492d-9c41-acd15ffbda27?raw=true "Modelo Conceitual")
+
     
     
 #### 5.1 Validação do Modelo Conceitual
