@@ -28,15 +28,15 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 ### 3.PERGUNTAS A SEREM RESPONDIDAS<br>
 
 #### 3.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
-    a) O sistema proposto poderá fornecer quais tipos de relatórios e informações?
-    O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas, embarque e desembarque nas paradas.
- 
+    a) O sistema proposto poderá fornecer quais tipos de relatórios e informações? 
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
-    - Relatório com as paradas com maior embarque/desembarque.
-    - Relatório das viagens com mais procura.
-    - Relatório com o lucro mensal.
-    - Relatório das paradas onde mais ônibus passam. 
-    - Relatório de vendas por vendedor. 
+O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas, embarque e desembarque nas paradas.
+
+- Relatório com as paradas com maior embarque/desembarque.
+- Relatório das viagens com mais procura.
+- Relatório com o lucro mensal.
+- Relatório das paradas onde mais ônibus passam. 
+- Relatório de vendas por vendedor. 
  
 > A Empresa DevCom precisa inicialmente dos seguintes relatórios:
 * Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
