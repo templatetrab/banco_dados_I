@@ -57,7 +57,8 @@ O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas, em
     
 ### 5.MODELO CONCEITUAL<br>
         
-![Alt text](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/4a6ac587-5695-492d-9c41-acd15ffbda27?raw=true "Modelo Conceitual")
+![Alt text](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/245f6b08-2aec-4608-a799-aa5fd0ad22b3?raw=true "Modelo Conceitual")
+
  
 #### 5.1 Validação do Modelo Conceitual
     [Grupo01]: Gustavo, Cassiano e Henrique
