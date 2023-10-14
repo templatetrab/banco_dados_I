@@ -65,53 +65,53 @@ O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas, em
     [Grupo02]: Bruno, Giovanna, Felipe Suhett e Jéssica
 
 #### 5.2 Descrição dos dados 
-	Pessoa: tabela que armazena as informações relativas à pessoa<br>
-	ID (Primary Key): Campo em que é armazenado a identificação<br>
-	Nome: Campo em que é armazenado o nome da pessoa<br>
-	CPF: Campo em que é armazenado o Cadastro de Pessoa Física da Pessoa<br>
-	Data de Nascimento: Campo onde é armazenado a Data de nascimento da pessoa<br>
-	Telefone: Campo onde é armazenado o telefone da pessoa<br>
-	Email: Campo onde é armazenado o email da pessoa<br>
+	Pessoa: tabela que armazena as informações relativas à pessoa
+	ID (Primary Key): Campo em que é armazenado a identificação
+	Nome: Campo em que é armazenado o nome da pessoa
+	CPF: Campo em que é armazenado o Cadastro de Pessoa Física da Pessoa
+	Data de Nascimento: Campo onde é armazenado a Data de nascimento da pessoa
+	Telefone: Campo onde é armazenado o telefone da pessoa
+	Email: Campo onde é armazenado o email da pessoa
 	
-	Motorista: Tabela que armazena as informações relativas ao motorista<br>
-	Categoria de CNH: Campo que armazena a categoria da CNH<br>
-	Validade de CNH: Campo que armazena a data de validade da CNH<br>
-	Salário: Campo que armazena o salário do motorista<br>
+	Motorista: Tabela que armazena as informações relativas ao motorista
+	Categoria de CNH: Campo que armazena a categoria da CNH
+	Validade de CNH: Campo que armazena a data de validade da CNH
+	Salário: Campo que armazena o salário do motorista
 	
-	Passagem: tabela que armazena as informações relativas a passagem<br>
-	ID (Primary Key): Campo em que é armazenado o identificador<br>
-	Número do acento: Campo em que contém o número do acento presente na passagem<br>
-	Nome do passageiro: Campo em que contém o nome do passageiro <br>
-	Origem: Campo que contém a origem da viagem, como nome da cidade de origem <br>
-	Destino: Campo que contém o destino da viagem, como nome da cidade de destino ou de parada<br>
-	Valor: Campo que contém o valor da passagem<br>
+	Passagem: tabela que armazena as informações relativas a passagem
+	ID (Primary Key): Campo em que é armazenado o identificador
+	Número do acento: Campo em que contém o número do acento presente na passagem
+	Nome do passageiro: Campo em que contém o nome do passageiro 
+	Origem: Campo que contém a origem da viagem, como nome da cidade de origem
+	Destino: Campo que contém o destino da viagem, como nome da cidade de destino ou de parada
+	Valor: Campo que contém o valor da passagem
 	
-	Assento: Tabela que armazena informações relativas ao assento<br>
-	ID (Primary Key): Campo em que armazena o identificador<br>
-	Ônibus: Campo em que armazena o número do ônibus<br>
-	Estado: Campo em que armazena o estado do assento<br>
+	Assento: Tabela que armazena informações relativas ao assento
+	ID (Primary Key): Campo em que armazena o identificador
+	Ônibus: Campo em que armazena o número do ônibus
+	Estado: Campo em que armazena o estado do assento
 	
-	Onibus: Tabela que armazena informações relativas ao ônibus <br>
-	ID (Primary Key): Campo em que armazena o identificador<br>
-	Tipo leito: Campo em que armazena informações sobre o tipo de leito, como executivo, semi leito, leito cama e convencional <br>
-	Equipamentos: Campo em que armazena os equipamentos disponíveis no onibus, ar condicionado, internet, banheiro<br>
-	Tamanho: Campo em que armazena informações sobre o tamanho do ônibus, como se é micro-ônibus ou ônibus<br>
-	Quantidade de assentos: Campo em que armazena a quantidade dos assentos<br>
-	Nº Chassi: Campo em que armazena o número do chassi do ônibus <br>
+	Onibus: Tabela que armazena informações relativas ao ônibus 
+	ID (Primary Key): Campo em que armazena o identificador
+	Tipo leito: Campo em que armazena informações sobre o tipo de leito, como executivo, semi leito, leito cama e convencional 
+	Equipamentos: Campo em que armazena os equipamentos disponíveis no onibus, ar condicionado, internet, banheiro
+	Tamanho: Campo em que armazena informações sobre o tamanho do ônibus, como se é micro-ônibus ou ônibus
+	Quantidade de assentos: Campo em que armazena a quantidade dos assentos
+	Nº Chassi: Campo em que armazena o número do chassi do ônibus 
  
-	Viagem: Tabela que armazena informações sobre a viagem<br>
-	ID (Primary Key): Campo em que armazena o identificador<br>
-	Tempo: Campo em que armazena o tempo de duração da viagem<br>
-	Distância: Campo em que armazena a distância da cidade de origem até o destino<br>
-	Embarque: Campo em que armazena informações do local de embarque, como o nome da cidade<br>
-	Destino: Campo em que armazena informações sobre o local de destino, como o nome da cidade<br>
-	Origem: Campo em que armazena a informações sobre a origem, como o nome da estação<br>
+	Viagem: Tabela que armazena informações sobre a viagem
+	ID (Primary Key): Campo em que armazena o identificador
+	Tempo: Campo em que armazena o tempo de duração da viagem
+	Distância: Campo em que armazena a distância da cidade de origem até o destino
+	Embarque: Campo em que armazena informações do local de embarque, como o nome da cidade
+	Destino: Campo em que armazena informações sobre o local de destino, como o nome da cidade
+	Origem: Campo em que armazena a informações sobre a origem, como o nome da estação
 	
-	Parada: Tabela que armazena informações sobre a parada do ônibus<br>
-	ID (Primary Key): Campo em que armazena o identificador <br> 
-	Cidade: Campo em que armazena o nome da cidade de parada<br>
-	Bairro: Campo em que armazena o nome do bairro de parada<br>
-	Nome: Campo em que armazena o nome da parada<br>
+	Parada: Tabela que armazena informações sobre a parada do ônibus
+	ID (Primary Key): Campo em que armazena o identificador 
+	Cidade: Campo em que armazena o nome da cidade de parada
+	Bairro: Campo em que armazena o nome do bairro de parada
+	Nome: Campo em que armazena o nome da parada
 
 
 
