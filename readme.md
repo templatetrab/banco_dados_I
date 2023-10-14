@@ -98,6 +98,14 @@ O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas, em
 	Tamanho: Campo em que armazena informações sobre o tamanho do ônibus, como se é micro-ônibus ou ônibus<br>
 	Quantidade de assentos: Campo em que armazena a quantidade dos assentos<br>
 	Nº Chassi: Campo em que armazena o número do chassi do ônibus <br>
+ 
+	Viagem: Tabela que armazena informações sobre a viagem<br>
+	ID (Primary Key): Campo em que armazena o identificador<br>
+	Tempo: Campo em que armazena o tempo de duração da viagem<br>
+	Distância: Campo em que armazena a distância da cidade de origem até o destino<br>
+	Embarque: Campo em que armazena informações do local de embarque, como o nome da cidade<br>
+	Destino: Campo em que armazena informações sobre o local de destino, como o nome da cidade<br>
+	Origem: Campo em que armazena a informações sobre a origem, como o nome da estação<br>
 	
 	Parada: Tabela que armazena informações sobre a parada do ônibus<br>
 	ID (Primary Key): Campo em que armazena o identificador <br> 
