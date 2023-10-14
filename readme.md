@@ -65,11 +65,48 @@ O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas, em
     [Grupo02]: Bruno, Giovanna, Felipe Suhett e Jéssica
 
 #### 5.2 Descrição dos dados 
-    [objeto]: [descrição do objeto]
-    
-    EXEMPLO:
-    CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
-    CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+Pessoa: tabela que armazena as informações relativas à pessoa<br>
+ID (Primary Key): Campo em que é armazenado a identificação<br>
+Nome: Campo em que é armazenado o nome da pessoa<br>
+CPF: Campo em que é armazenado o Cadastro de Pessoa Física da Pessoa<br>
+Data de Nascimento: Campo onde é armazenado a Data de nascimento da pessoa<br>
+Telefone: Campo onde é armazenado o telefone da pessoa<br>
+Email: Campo onde é armazenado o email da pessoa<br>
+
+Motorista: Tabela que armazena as informações relativas ao motorista<br>
+Categoria de CNH: Campo que armazena a categoria da CNH<br>
+Validade de CNH: Campo que armazena a data de validade da CNH<br>
+Salário: Campo que armazena o salário do motorista<br>
+
+Passagem: tabela que armazena as informações relativas a passagem<br>
+ID (Primary Key): Campo em que é armazenado o identificador<br>
+Número do acento: Campo em que contém o número do acento presente na passagem<br>
+Nome do passageiro: Campo em que contém o nome do passageiro <br>
+Origem: Campo que contém a origem da viagem, como nome da cidade de origem <br>
+Destino: Campo que contém o destino da viagem, como nome da cidade de destino ou de parada<br>
+Valor: Campo que contém o valor da passagem<br>
+
+Assento: Tabela que armazena informações relativas ao assento<br>
+ID (Primary Key): Campo em que armazena o identificador<br>
+Ônibus: Campo em que armazena o número do ônibus<br>
+Estado: Campo em que armazena o estado do assento<br>
+
+Onibus: Tabela que armazena informações relativas ao ônibus <br>
+ID (Primary Key): Campo em que armazena o identificador<br>
+Tipo leito: Campo em que armazena informações sobre o tipo de leito, como executivo, semi leito, leito cama e convencional <br>
+Equipamentos: Campo em que armazena os equipamentos disponíveis no onibus, ar condicionado, internet, banheiro<br>
+Tamanho: Campo em que armazena informações sobre o tamanho do ônibus, como se é micro-ônibus ou ônibus<br>
+Quantidade de assentos: Campo em que armazena a quantidade dos assentos<br>
+Nº Chassi: Campo em que armazena o número do chassi do ônibus <br>
+
+Parada: Tabela que armazena informações sobre a parada do ônibus<br>
+ID (Primary Key): Campo em que armazena o identificador <br> 
+Cidade: Campo em que armazena o nome da cidade de parada<br>
+Bairro: Campo em que armazena o nome do bairro de parada<br>
+Nome: Campo em que armazena o nome da parada<br>
+
+
+
 
 ># Marco de Entrega 01: Do item 1 até o item 5.2 (5 PTS) <br> 
 
