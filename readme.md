@@ -41,20 +41,16 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 #### 3.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informações? 
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
-O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas, embarque e desembarque nas paradas.
 
-- Relatório com as paradas com maior embarque/desembarque. Deve ser filtrado por período de tempo, contendo a descrição da parada, a quantidade e o horário com maior índice.
-- Relatório das viagens com mais procura. Deve-se selecionar a quantidade de viagens que serão mostradas, ordenando decrescentemente.
+> O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas e viagens, embarque e desembarque nas paradas.
+
+- Relatório que mostre as paradas com maior embarque/desembarque. Deve ser filtrado por período de tempo, contendo a descrição da parada, a quantidade e o horário com maior índice.
+- Relatório das viagens com maior procura. Deve-se selecionar a quantidade de viagens que serão mostradas, ordenando decrescentemente.
 - Relatório com o lucro mensal. Deve conter a quantidade de viagens realizadas, quantidade de passagens vendidas, valor total do mês selecionado. 
-- Relatório das paradas onde mais ônibus passam. 
-- 
- 
-> A Empresa DevCom precisa inicialmente dos seguintes relatórios:
-* Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
-* Relatório relativo aos os supervisores e supervisionados. O resultado deve conter o nome do supervisor e nome do supervisionado além da quantidade total de horas que cada supervisionado tem alocada aos projetos existentes na empresa.
-* Relatorio que mostre para cada linha obtida o nome do departamento, o valor individual de cada salario existente no  departamento e a média geral de salarios dentre todos os empregados. Os resultados devem ser apresentados ordenados por departamento.
-* Relatório que mostre as informações relacionadas a todos empregados de empresa (sem excluir ninguém). As linhas resultantes devem conter informações sobre: rg, nome, salario do empregado, data de início do salario atual, nomes dos projetos que participa, quantidade de horas e localização nos referidos projetos, numero e nome dos departamentos aos quais está alocado, informações do historico de salário como inicio, fim, e valores de salarios antigos que foram inclusos na referida tabela (caso possuam informações na mesma), além de todas informações relativas aos dependentes. 
-    
+- Relatório com as viagens que um determinado motorista realizou em um período de tempo.
+- Relatório com a média de quantidade de assentos vendidos.
+
+
 ### 5.MODELO CONCEITUAL<br>
         
 ![Alt text](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/245f6b08-2aec-4608-a799-aa5fd0ad22b3?raw=true "Modelo Conceitual")
