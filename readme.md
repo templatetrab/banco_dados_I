@@ -53,10 +53,7 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 
 ### 5.MODELO CONCEITUAL<br>
         
-
-![Alt text](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/e79a7f43-8b4e-4d03-8a14-d9ffc1479d20?raw=true "Modelo Conceitual")
-
-
+![Alt text](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/156e4eb8-90c0-407f-b2d4-a80b1e90144e?raw=true "Modelo Conceitual")
  
 #### 5.1 Validação do Modelo Conceitual
     [Grupo01]: Gustavo, Cassiano e Henrique
@@ -119,7 +116,8 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 ># Marco de Entrega 01: Do item 1 até o item 5.2 (5 PTS) <br> 
 
 ### 6	MODELO LÓGICO<br>
-![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/c4c3d2c1-5c7f-4b61-95fb-8f07d5874a89)
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/e1b122be-cb67-4364-93d2-19661ac99a3a)
+
 
         a) inclusão do esquema lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
@@ -132,8 +130,7 @@ CREATE TABLE ONIBUS (
     tipo_leito VARCHAR,
     n_chassi INTEGER,
     FK_VIAGEM_id INTEGER,
-    data DATE,
-    FK_EQUIPAMENTO_id INTEGER
+    data DATE
 );
 
 CREATE TABLE VIAGEM (
@@ -171,9 +168,7 @@ CREATE TABLE PESSOA (
     id INTEGER PRIMARY KEY,
     nome VARCHAR,
     cpf VARCHAR,
-    dt_nasc DATE,
-    contato VARCHAR,
-    tipo_contato VARCHAR
+    dt_nasc DATE
 );
 
 CREATE TABLE MOTORISTA (
@@ -197,6 +192,12 @@ CREATE TABLE Rota (
     Destino VARCHAR
 );
 
+CREATE TABLE CONTATO (
+    tipo_de_contato VARCHAR,
+    contato VARCHAR,
+    FK_PESSOA_id INTEGER
+);
+
 CREATE TABLE Dirige (
     fk_MOTORISTA_FK_PESSOA_id INTEGER,
     fk_ONIBUS_id INTEGER
@@ -204,6 +205,11 @@ CREATE TABLE Dirige (
 
 CREATE TABLE Possui (
     fk_PARADA_id INTEGER
+);
+
+CREATE TABLE Tem (
+    fk_ONIBUS_id INTEGER,
+    fk_EQUIPAMENTO_id INTEGER
 );
 
 CREATE TABLE Possui (
@@ -215,11 +221,6 @@ ALTER TABLE ONIBUS ADD CONSTRAINT FK_ONIBUS_2
     FOREIGN KEY (FK_VIAGEM_id)
     REFERENCES VIAGEM (id)
     ON DELETE RESTRICT;
- 
-ALTER TABLE ONIBUS ADD CONSTRAINT FK_ONIBUS_3
-    FOREIGN KEY (FK_EQUIPAMENTO_id)
-    REFERENCES EQUIPAMENTO (id)
-    ON DELETE CASCADE;
  
 ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_2
     FOREIGN KEY (FK_PESSOA_id)
@@ -236,6 +237,11 @@ ALTER TABLE MOTORISTA ADD CONSTRAINT FK_MOTORISTA_2
     REFERENCES PESSOA (id)
     ON DELETE CASCADE;
  
+ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_1
+    FOREIGN KEY (FK_PESSOA_id)
+    REFERENCES PESSOA (id)
+    ON DELETE RESTRICT;
+ 
 ALTER TABLE Dirige ADD CONSTRAINT FK_Dirige_1
     FOREIGN KEY (fk_MOTORISTA_FK_PESSOA_id)
     REFERENCES MOTORISTA (FK_PESSOA_id)
@@ -250,6 +256,16 @@ ALTER TABLE Possui ADD CONSTRAINT FK_Possui_1
     FOREIGN KEY (fk_PARADA_id)
     REFERENCES PARADA (id)
     ON DELETE RESTRICT;
+ 
+ALTER TABLE Tem ADD CONSTRAINT FK_Tem_1
+    FOREIGN KEY (fk_ONIBUS_id)
+    REFERENCES ONIBUS (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Tem ADD CONSTRAINT FK_Tem_2
+    FOREIGN KEY (fk_EQUIPAMENTO_id)
+    REFERENCES EQUIPAMENTO (id)
+    ON DELETE SET NULL;
  
 ALTER TABLE Possui ADD CONSTRAINT FK_Possui_1
     FOREIGN KEY (fk_PASSAGEM_id)
