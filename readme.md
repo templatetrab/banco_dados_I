@@ -53,7 +53,9 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 
 ### 5.MODELO CONCEITUAL<br>
         
-![Alt text](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/245f6b08-2aec-4608-a799-aa5fd0ad22b3?raw=true "Modelo Conceitual")
+
+![Alt text](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/e79a7f43-8b4e-4d03-8a14-d9ffc1479d20?raw=true "Modelo Conceitual")
+
 
  
 #### 5.1 Validação do Modelo Conceitual
@@ -117,14 +119,147 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 ># Marco de Entrega 01: Do item 1 até o item 5.2 (5 PTS) <br> 
 
 ### 6	MODELO LÓGICO<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/c4c3d2c1-5c7f-4b61-95fb-8f07d5874a89)
+
         a) inclusão do esquema lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
         (não serão aceitos modelos que não estejam em conformidade)
 
 ### 7	MODELO FÍSICO<br>
-        a) inclusão das instruções de criacão das estruturas em SQL/DDL 
-        (criação de tabelas, alterações, etc..) 
 
+CREATE TABLE ONIBUS (
+    id INTEGER PRIMARY KEY,
+    tipo_leito VARCHAR,
+    n_chassi INTEGER,
+    FK_VIAGEM_id INTEGER,
+    data DATE,
+    FK_EQUIPAMENTO_id INTEGER
+);
+
+CREATE TABLE VIAGEM (
+    desembarque VARCHAR,
+    distancia DOUBLE,
+    tempo TIME,
+    id INTEGER PRIMARY KEY,
+    embarque VARCHAR
+);
+
+CREATE TABLE PARADA (
+    nome VARCHAR,
+    cidade VARCHAR,
+    bairro VARCHAR,
+    id INTEGER PRIMARY KEY
+);
+
+CREATE TABLE PASSAGEM (
+    id INTEGER PRIMARY KEY,
+    n_assento INTEGER,
+    nome_passageiro VARCHAR,
+    origem VARCHAR,
+    destino VARCHAR,
+    valor DOUBLE,
+    FK_PESSOA_id INTEGER
+);
+
+CREATE TABLE ASSENTO (
+    id INTEGER PRIMARY KEY,
+    estado VARCHAR,
+    FK_ONIBUS_id INTEGER
+);
+
+CREATE TABLE PESSOA (
+    id INTEGER PRIMARY KEY,
+    nome VARCHAR,
+    cpf VARCHAR,
+    dt_nasc DATE,
+    contato VARCHAR,
+    tipo_contato VARCHAR
+);
+
+CREATE TABLE MOTORISTA (
+    categoria_cnh VARCHAR,
+    validade_cnh DATE,
+    salario DOUBLE,
+    FK_PESSOA_id INTEGER PRIMARY KEY
+);
+
+CREATE TABLE EQUIPAMENTO (
+    id INTEGER PRIMARY KEY,
+    nome VARCHAR
+);
+
+CREATE TABLE HORARIO (
+    data TIMESTAMP
+);
+
+CREATE TABLE Rota (
+    Origem VARCHAR,
+    Destino VARCHAR
+);
+
+CREATE TABLE Dirige (
+    fk_MOTORISTA_FK_PESSOA_id INTEGER,
+    fk_ONIBUS_id INTEGER
+);
+
+CREATE TABLE Possui (
+    fk_PARADA_id INTEGER
+);
+
+CREATE TABLE Possui (
+    fk_PASSAGEM_id INTEGER,
+    fk_PARADA_id INTEGER
+);
+ 
+ALTER TABLE ONIBUS ADD CONSTRAINT FK_ONIBUS_2
+    FOREIGN KEY (FK_VIAGEM_id)
+    REFERENCES VIAGEM (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE ONIBUS ADD CONSTRAINT FK_ONIBUS_3
+    FOREIGN KEY (FK_EQUIPAMENTO_id)
+    REFERENCES EQUIPAMENTO (id)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_2
+    FOREIGN KEY (FK_PESSOA_id)
+    REFERENCES PESSOA (id)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE ASSENTO ADD CONSTRAINT FK_ASSENTO_2
+    FOREIGN KEY (FK_ONIBUS_id)
+    REFERENCES ONIBUS (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE MOTORISTA ADD CONSTRAINT FK_MOTORISTA_2
+    FOREIGN KEY (FK_PESSOA_id)
+    REFERENCES PESSOA (id)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Dirige ADD CONSTRAINT FK_Dirige_1
+    FOREIGN KEY (fk_MOTORISTA_FK_PESSOA_id)
+    REFERENCES MOTORISTA (FK_PESSOA_id)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Dirige ADD CONSTRAINT FK_Dirige_2
+    FOREIGN KEY (fk_ONIBUS_id)
+    REFERENCES ONIBUS (id)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Possui ADD CONSTRAINT FK_Possui_1
+    FOREIGN KEY (fk_PARADA_id)
+    REFERENCES PARADA (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Possui ADD CONSTRAINT FK_Possui_1
+    FOREIGN KEY (fk_PASSAGEM_id)
+    REFERENCES PASSAGEM (id)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Possui ADD CONSTRAINT FK_Possui_2
+    FOREIGN KEY (fk_PARADA_id)
+    REFERENCES PARADA (id)
+    ON DELETE SET NULL;
       
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
         a) Script das instruções relativas a inclusão de dados 
