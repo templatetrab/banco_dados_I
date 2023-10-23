@@ -64,8 +64,6 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	Nome: Nome completo da pessoa.
 	CPF: Número de Cadastro de Pessoa Física da pessoa.
 	Data de Nascimento: Data de nascimento da pessoa.
-	Telefone: Número de telefone de contato da pessoa.
-	Email: Endereço de email da pessoa.
 	
 	Motorista: Uma tabela que contém informações sobre motoristas.
 	Categoria de CNH: Categoria da Carteira Nacional de Habilitação (CNH) do motorista.
@@ -107,11 +105,12 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	Bairro: Nome do bairro da parada (se aplicável).
 	Nome: Nome da parada em si.
 
+ 	Reserva: Tabela que contem informações sobre a reserva
+  	Data: Data da reserva
+
 	Tipo de Contato: Tabela que mostra os possíveis tipos de contato que uma pessoa pode ter
  	ID (Chave Primária): Identificador único do tipo de contato.
   	Descrição: Define o tipo de contato.
-
-
 
 
 ># Marco de Entrega 01: Do item 1 até o item 5.2 (5 PTS) <br> 
