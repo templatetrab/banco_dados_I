@@ -52,9 +52,8 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 
 
 ### 5.MODELO CONCEITUAL<br>
-![Conceitual-rodoviario](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/eb97f33c-1632-4456-862b-a640b48f0b52?raw=true "Modelo Conceitual")
-        
- 
+![Conceitual](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/608e246f-b73e-4602-b88e-7ff339e5ec76?raw=true "Modelo Conceitual")
+
 #### 5.1 Validação do Modelo Conceitual
     [Grupo01]: Gustavo, Cassiano e Henrique
     [Grupo02]: Bruno, Giovanna, Felipe Suhett e Jéssica
@@ -83,7 +82,6 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	
 	Assento: Tabela que armazena informações sobre os assentos dos ônibus.
 	ID (Chave Primária): Identificador único do assento.
-	Ônibus: Número do ônibus ao qual o assento está associado.
 	Estado: Estado atual do assento.
 	
 	Ônibus: Uma tabela que contém informações sobre os ônibus utilizados nas viagens.
