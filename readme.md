@@ -125,41 +125,50 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
         (não serão aceitos modelos que não estejam em conformidade)
 
 ### 7	MODELO FÍSICO<br>
+	
+	DROP TABLE IF EXISTS PESSOA;
 	CREATE TABLE PESSOA (
-	    id INT PRIMARY KEY,
+	    id SERIAL PRIMARY KEY,
 	    nome VARCHAR(60),
 	    cpf CHAR(16),
 	    dt_nasc DATE
 	);
 	
+	DROP TABLE IF EXISTS MOTORISTA;
 	CREATE TABLE MOTORISTA (
 	    categoria_cnh CHAR(2),
 	    validade_cnh DATE,
 	    salario numeric(10,2),
-	    FK_PESSOA_id INT PRIMARY KEY
+	    FK_PESSOA_id INT,
+	    id SERIAL PRIMARY KEY
 	);
 	
+	DROP TABLE IF EXISTS TIPO_CONTATO;
 	CREATE TABLE TIPO_CONTATO (
 	    descricao VARCHAR(20),
-	    id INT PRIMARY KEY
+	    id SERIAL PRIMARY KEY
 	);
 	
+	DROP TABLE IF EXISTS CONTATO;
 	CREATE TABLE CONTATO (
 	    fk_TIPO_CONTATO_id INT,
 	    fk_PESSOA_id INT
 	);
 	
+	DROP TABLE IF EXISTS Rota;
 	CREATE TABLE Rota (
 	    Origem char(30),
 	    Destino char(30),
-	    id INT PRIMARY KEY
+	    id SERIAL PRIMARY KEY
 	);
 	
+	DROP TABLE IF EXISTS RotaParada;
 	CREATE TABLE RotaParada (
 	    fk_PARADA_id INT,
 	    fk_Rota_id INT
 	);
 	
+	DROP TABLE IF EXISTS OnibusViagem;
 	CREATE TABLE OnibusViagem (
 	    fk_ONIBUS_id INT,
 	    fk_VIAGEM_id INT,
@@ -167,40 +176,48 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	    hrPartida TIME
 	);
 	
+	DROP TABLE IF EXISTS VIAGEM;
 	CREATE TABLE VIAGEM (
 	    desembarque varchar(30),
 	    distancia numeric(10,2),
 	    tempo TIME,
-	    id INT PRIMARY KEY,
+	    id SERIAL PRIMARY KEY,
 	    embarque varchar(30),
 	    FK_Rota_id INT
 	);
 	
+	DROP TABLE IF EXISTS PARADA;
 	CREATE TABLE PARADA (
 	    nome varchar(50),
 	    cidade varchar(50),
 	    bairro varchar(50),
-	    id INT PRIMARY KEY
+	    id SERIAL PRIMARY KEY
 	);
 	
+	DROP TABLE IF EXISTS EQUIPAMENTO;
 	CREATE TABLE EQUIPAMENTO (
-	    id INT PRIMARY KEY,
+	    id SERIAL PRIMARY KEY,
 	    nome varchar(30)
 	);
 	
+	DROP TABLE IF EXISTS ONIBUS;
+	CREATE TABLE ONIBUS (
+	    id SERIAL PRIMARY KEY,
+	    tipo_leito varchar(16),
+	    n_chassi char(18)
+	);
+	
+	DROP TABLE IF EXISTS OnibusEquipamento;
 	CREATE TABLE OnibusEquipamento (
 	    fk_ONIBUS_id INT,
 	    fk_EQUIPAMENTO_id INT
 	);
 	
-	CREATE TABLE ONIBUS (
-	    id INT PRIMARY KEY,
-	    tipo_leito varchar(16),
-	    n_chassi char(18)
-	);
 	
+	
+	DROP TABLE IF EXISTS PASSAGEM;
 	CREATE TABLE PASSAGEM (
-	    id INT PRIMARY KEY,
+	    id SERIAL PRIMARY KEY,
 	    n_assento INT,
 	    nome_passageiro char(80),
 	    origem char(80),
@@ -212,17 +229,19 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	    data DATE
 	);
 	
+	DROP TABLE IF EXISTS ASSENTO;
 	CREATE TABLE ASSENTO (
-	    id INT PRIMARY KEY,
+	    id SERIAL PRIMARY KEY,
 	    estado INT,
 	    FK_ONIBUS_id INT
 	);
 	
+	DROP TABLE IF EXISTS MotoristaOnibus;
 	CREATE TABLE MotoristaOnibus (
 	    fk_PESSOA_id INT,
 	    fk_ONIBUS_id INT
 	);
-	 
+	
 	ALTER TABLE MOTORISTA ADD CONSTRAINT FK_MOTORISTA_2
 	    FOREIGN KEY (FK_PESSOA_id)
 	    REFERENCES PESSOA (id)
@@ -302,6 +321,8 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	    FOREIGN KEY (fk_ONIBUS_id)
 	    REFERENCES ONIBUS (id)
 	    ON DELETE SET NULL;
+
+
 	      
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
         a) Script das instruções relativas a inclusão de dados 
