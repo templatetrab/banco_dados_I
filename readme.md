@@ -126,159 +126,185 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
         (não serão aceitos modelos que não estejam em conformidade)
 
 ### 7	MODELO FÍSICO<br>
-
-CREATE TABLE ONIBUS (
-    id INTEGER PRIMARY KEY,
-    tipo_leito VARCHAR,
-    n_chassi INTEGER,
-    FK_VIAGEM_id INTEGER,
-    data DATE
-);
-
-CREATE TABLE VIAGEM (
-    desembarque VARCHAR,
-    distancia DOUBLE,
-    tempo TIME,
-    id INTEGER PRIMARY KEY,
-    embarque VARCHAR
-);
-
-CREATE TABLE PARADA (
-    nome VARCHAR,
-    cidade VARCHAR,
-    bairro VARCHAR,
-    id INTEGER PRIMARY KEY
-);
-
-CREATE TABLE PASSAGEM (
-    id INTEGER PRIMARY KEY,
-    n_assento INTEGER,
-    nome_passageiro VARCHAR,
-    origem VARCHAR,
-    destino VARCHAR,
-    valor DOUBLE,
-    FK_PESSOA_id INTEGER
-);
-
-CREATE TABLE ASSENTO (
-    id INTEGER PRIMARY KEY,
-    estado VARCHAR,
-    FK_ONIBUS_id INTEGER
-);
-
-CREATE TABLE PESSOA (
-    id INTEGER PRIMARY KEY,
-    nome VARCHAR,
-    cpf VARCHAR,
-    dt_nasc DATE
-);
-
-CREATE TABLE MOTORISTA (
-    categoria_cnh VARCHAR,
-    validade_cnh DATE,
-    salario DOUBLE,
-    FK_PESSOA_id INTEGER PRIMARY KEY
-);
-
-CREATE TABLE EQUIPAMENTO (
-    id INTEGER PRIMARY KEY,
-    nome VARCHAR
-);
-
-CREATE TABLE HORARIO (
-    data TIMESTAMP
-);
-
-CREATE TABLE Rota (
-    Origem VARCHAR,
-    Destino VARCHAR
-);
-
-CREATE TABLE CONTATO (
-    tipo_de_contato VARCHAR,
-    contato VARCHAR,
-    FK_PESSOA_id INTEGER
-);
-
-CREATE TABLE Dirige (
-    fk_MOTORISTA_FK_PESSOA_id INTEGER,
-    fk_ONIBUS_id INTEGER
-);
-
-CREATE TABLE Possui (
-    fk_PARADA_id INTEGER
-);
-
-CREATE TABLE Tem (
-    fk_ONIBUS_id INTEGER,
-    fk_EQUIPAMENTO_id INTEGER
-);
-
-CREATE TABLE Possui (
-    fk_PASSAGEM_id INTEGER,
-    fk_PARADA_id INTEGER
-);
- 
-ALTER TABLE ONIBUS ADD CONSTRAINT FK_ONIBUS_2
-    FOREIGN KEY (FK_VIAGEM_id)
-    REFERENCES VIAGEM (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_2
-    FOREIGN KEY (FK_PESSOA_id)
-    REFERENCES PESSOA (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE ASSENTO ADD CONSTRAINT FK_ASSENTO_2
-    FOREIGN KEY (FK_ONIBUS_id)
-    REFERENCES ONIBUS (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE MOTORISTA ADD CONSTRAINT FK_MOTORISTA_2
-    FOREIGN KEY (FK_PESSOA_id)
-    REFERENCES PESSOA (id)
-    ON DELETE CASCADE;
- 
-ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_1
-    FOREIGN KEY (FK_PESSOA_id)
-    REFERENCES PESSOA (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE Dirige ADD CONSTRAINT FK_Dirige_1
-    FOREIGN KEY (fk_MOTORISTA_FK_PESSOA_id)
-    REFERENCES MOTORISTA (FK_PESSOA_id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE Dirige ADD CONSTRAINT FK_Dirige_2
-    FOREIGN KEY (fk_ONIBUS_id)
-    REFERENCES ONIBUS (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE Possui ADD CONSTRAINT FK_Possui_1
-    FOREIGN KEY (fk_PARADA_id)
-    REFERENCES PARADA (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE Tem ADD CONSTRAINT FK_Tem_1
-    FOREIGN KEY (fk_ONIBUS_id)
-    REFERENCES ONIBUS (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE Tem ADD CONSTRAINT FK_Tem_2
-    FOREIGN KEY (fk_EQUIPAMENTO_id)
-    REFERENCES EQUIPAMENTO (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE Possui ADD CONSTRAINT FK_Possui_1
-    FOREIGN KEY (fk_PASSAGEM_id)
-    REFERENCES PASSAGEM (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE Possui ADD CONSTRAINT FK_Possui_2
-    FOREIGN KEY (fk_PARADA_id)
-    REFERENCES PARADA (id)
-    ON DELETE SET NULL;
-      
+	
+	CREATE TABLE PESSOA (
+	    id INT PRIMARY KEY,
+	    nome VARCHAR(60),
+	    cpf CHAR(16),
+	    dt_nasc DATE
+	);
+	
+	CREATE TABLE MOTORISTA (
+	    categoria_cnh CHAR(2),
+	    validade_cnh DATE,
+	    salario DOUBLE,
+	    FK_PESSOA_id INT PRIMARY KEY
+	);
+	
+	CREATE TABLE TIPO_CONTATO (
+	    descricao VARCHAR(20),
+	    id INT PRIMARY KEY
+	);
+	
+	CREATE TABLE CONTATO (
+	    fk_TIPO_CONTATO_id INT,
+	    fk_PESSOA_id INT
+	);
+	
+	CREATE TABLE Rota (
+	    Origem char(30),
+	    Destino char(30),
+	    id INT PRIMARY KEY
+	);
+	
+	CREATE TABLE RotaParada (
+	    fk_PARADA_id INT,
+	    fk_Rota_id INT
+	);
+	
+	CREATE TABLE OnibusViagem (
+	    fk_ONIBUS_id INT,
+	    fk_VIAGEM_id INT,
+	    data DATE,
+	    hrPartida TIME
+	);
+	
+	CREATE TABLE VIAGEM (
+	    desembarque varchar(30),
+	    distancia DOUBLE,
+	    tempo TIME,
+	    id INT PRIMARY KEY,
+	    embarque varchar(30),
+	    FK_Rota_id INT
+	);
+	
+	CREATE TABLE PARADA (
+	    nome varchar(50),
+	    cidade varchar(50),
+	    bairro varchar(50),
+	    id INT PRIMARY KEY
+	);
+	
+	CREATE TABLE EQUIPAMENTO (
+	    id INT PRIMARY KEY,
+	    nome varchar(30)
+	);
+	
+	CREATE TABLE OnibusEquipamento (
+	    fk_ONIBUS_id INT,
+	    fk_EQUIPAMENTO_id INT
+	);
+	
+	CREATE TABLE ONIBUS (
+	    id INT PRIMARY KEY,
+	    tipo_leito varchar(16),
+	    n_chassi char(18)
+	);
+	
+	CREATE TABLE PASSAGEM (
+	    id INT PRIMARY KEY,
+	    n_assento INT,
+	    nome_passageiro char(80),
+	    origem char(80),
+	    destino char(80),
+	    valor DOUBLE,
+	    FK_PESSOA_id INT,
+	    FK_PARADA_id INT,
+	    FK_ASSENTO_id INT,
+	    data DATE
+	);
+	
+	CREATE TABLE ASSENTO (
+	    id INT PRIMARY KEY,
+	    estado INT,
+	    FK_ONIBUS_id INT
+	);
+	
+	CREATE TABLE MotoristaOnibus (
+	    fk_PESSOA_id INT,
+	    fk_ONIBUS_id INT
+	);
+	 
+	ALTER TABLE MOTORISTA ADD CONSTRAINT FK_MOTORISTA_2
+	    FOREIGN KEY (FK_PESSOA_id)
+	    REFERENCES PESSOA (id)
+	    ON DELETE CASCADE;
+	 
+	ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_1
+	    FOREIGN KEY (fk_TIPO_CONTATO_id)
+	    REFERENCES TIPO_CONTATO (id)
+	    ON DELETE SET NULL;
+	 
+	ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_2
+	    FOREIGN KEY (fk_PESSOA_id)
+	    REFERENCES PESSOA (id)
+	    ON DELETE SET NULL;
+	 
+	ALTER TABLE RotaParada ADD CONSTRAINT FK_RotaParada_1
+	    FOREIGN KEY (fk_PARADA_id)
+	    REFERENCES PARADA (id)
+	    ON DELETE RESTRICT;
+	 
+	ALTER TABLE RotaParada ADD CONSTRAINT FK_RotaParada_2
+	    FOREIGN KEY (fk_Rota_id)
+	    REFERENCES Rota (id)
+	    ON DELETE SET NULL;
+	 
+	ALTER TABLE OnibusViagem ADD CONSTRAINT FK_OnibusViagem_1
+	    FOREIGN KEY (fk_ONIBUS_id)
+	    REFERENCES ONIBUS (id)
+	    ON DELETE RESTRICT;
+	 
+	ALTER TABLE OnibusViagem ADD CONSTRAINT FK_OnibusViagem_2
+	    FOREIGN KEY (fk_VIAGEM_id)
+	    REFERENCES VIAGEM (id)
+	    ON DELETE SET NULL;
+	 
+	ALTER TABLE VIAGEM ADD CONSTRAINT FK_VIAGEM_2
+	    FOREIGN KEY (FK_Rota_id)
+	    REFERENCES Rota (id)
+	    ON DELETE RESTRICT;
+	 
+	ALTER TABLE OnibusEquipamento ADD CONSTRAINT FK_OnibusEquipamento_1
+	    FOREIGN KEY (fk_ONIBUS_id)
+	    REFERENCES ONIBUS (id)
+	    ON DELETE RESTRICT;
+	 
+	ALTER TABLE OnibusEquipamento ADD CONSTRAINT FK_OnibusEquipamento_2
+	    FOREIGN KEY (fk_EQUIPAMENTO_id)
+	    REFERENCES EQUIPAMENTO (id)
+	    ON DELETE SET NULL;
+	 
+	ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_2
+	    FOREIGN KEY (FK_PESSOA_id???)
+	    REFERENCES ??? (???)
+	    ON DELETE SET NULL;
+	 
+	ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_3
+	    FOREIGN KEY (FK_PARADA_id)
+	    REFERENCES PARADA (id)
+	    ON DELETE CASCADE;
+	 
+	ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_4
+	    FOREIGN KEY (FK_ASSENTO_id)
+	    REFERENCES ASSENTO (id)
+	    ON DELETE CASCADE;
+	 
+	ALTER TABLE ASSENTO ADD CONSTRAINT FK_ASSENTO_2
+	    FOREIGN KEY (FK_ONIBUS_id)
+	    REFERENCES ONIBUS (id)
+	    ON DELETE RESTRICT;
+	 
+	ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_1
+	    FOREIGN KEY (fk_PESSOA_id???)
+	    REFERENCES ??? (???)
+	    ON DELETE SET NULL;
+	 
+	ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_2
+	    FOREIGN KEY (fk_ONIBUS_id)
+	    REFERENCES ONIBUS (id)
+	    ON DELETE SET NULL;
+	      
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
         a) Script das instruções relativas a inclusão de dados 
 	Requisito mínimo: (Script dev conter: Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
