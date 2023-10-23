@@ -126,7 +126,6 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
         (não serão aceitos modelos que não estejam em conformidade)
 
 ### 7	MODELO FÍSICO<br>
-	
 	CREATE TABLE PESSOA (
 	    id INT PRIMARY KEY,
 	    nome VARCHAR(60),
@@ -137,7 +136,7 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	CREATE TABLE MOTORISTA (
 	    categoria_cnh CHAR(2),
 	    validade_cnh DATE,
-	    salario DOUBLE,
+	    salario numeric(10,2),
 	    FK_PESSOA_id INT PRIMARY KEY
 	);
 	
@@ -171,7 +170,7 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	
 	CREATE TABLE VIAGEM (
 	    desembarque varchar(30),
-	    distancia DOUBLE,
+	    distancia numeric(10,2),
 	    tempo TIME,
 	    id INT PRIMARY KEY,
 	    embarque varchar(30),
@@ -207,7 +206,7 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	    nome_passageiro char(80),
 	    origem char(80),
 	    destino char(80),
-	    valor DOUBLE,
+	    valor numeric(10,2),
 	    FK_PESSOA_id INT,
 	    FK_PARADA_id INT,
 	    FK_ASSENTO_id INT,
@@ -276,8 +275,8 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	    ON DELETE SET NULL;
 	 
 	ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_2
-	    FOREIGN KEY (FK_PESSOA_id???)
-	    REFERENCES ??? (???)
+	    FOREIGN KEY (FK_PESSOA_id)
+	    REFERENCES PESSOA (id)
 	    ON DELETE SET NULL;
 	 
 	ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_3
@@ -296,8 +295,8 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	    ON DELETE RESTRICT;
 	 
 	ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_1
-	    FOREIGN KEY (fk_PESSOA_id???)
-	    REFERENCES ??? (???)
+	    FOREIGN KEY (fk_PESSOA_id)
+	    REFERENCES PESSOA (id)
 	    ON DELETE SET NULL;
 	 
 	ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_2
