@@ -87,9 +87,6 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	Ônibus: Uma tabela que contém informações sobre os ônibus utilizados nas viagens.
 	ID (Chave Primária): Identificador único do ônibus.
 	Tipo de Leito: Categoria do leito (por exemplo, executivo, semi leito, leito cama e convencional).
-	Equipamentos: Recursos disponíveis no ônibus, como ar condicionado, internet e banheiro.
-	Tamanho: Tamanho do ônibus, indicando se é micro-ônibus ou ônibus convencional.
-	Quantidade de Assentos: Número total de assentos no ônibus.
 	Nº Chassi: Número de chassi do ônibus.
 	
 	Viagem: Tabela que registra informações sobre as viagens realizadas.
@@ -97,16 +94,22 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	Tempo: Duração da viagem.
 	Distância: Distância entre a cidade de origem e o destino da viagem.
 	Embarque: Local de embarque da viagem, identificado pelo nome da cidade.
-	Destino: Local de destino da viagem, identificado pelo nome da cidade.
-	Origem: Local de origem da viagem, identificado pelo nome da estação.
-	
+	Desembarque: Local de destino da viagem, identificado pelo nome da cidade.
+
+	Rota: Tabela que contém toda a rota percorrida pelo ônibus
+ 	ID (Chave Primária): Identificador único daquela rota específica
+  	Destino: Local de destino da viagem
+   	Origem: Local de Origem da viagem
+ 
 	Parada: Tabela que contém informações sobre as paradas de ônibus durante a viagem.
 	ID (Chave Primária): Identificador único da parada.
 	Cidade: Nome da cidade onde a parada ocorre.
 	Bairro: Nome do bairro da parada (se aplicável).
 	Nome: Nome da parada em si.
 
-
+	Tipo de Contato: Tabela que mostra os possíveis tipos de contato que uma pessoa pode ter
+ 	ID (Chave Primária): Identificador único do tipo de contato.
+  	Descrição: Define o tipo de contato.
 
 
 
