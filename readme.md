@@ -334,6 +334,84 @@ ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_2
     OBS: Usa template da disciplina disponibilizado no Colab.<br>
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
 
+<br>
+select * from tipo_contato
+
+ ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/636e2d1a-bfa1-4a3f-b896-9500b842f7db)
+
+<br>
+select * from pessoa
+ 
+  ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/ef3cec34-f543-4b8f-b387-7f3480b692d3)
+
+ <br>
+select * from contato
+
+ ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/1db0cd21-f81f-4685-8d6c-f600a6468582)
+
+<br>
+select * from motorista
+
+ ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/abaf4989-c5a9-4cc3-8315-d633f0e2e134)
+
+<br>
+select * from onibus
+
+ ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/0a1d22e5-b250-4348-8f6c-08aa5a1e0876)
+
+<br>
+select * from motoristaonibus
+
+  ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/9678e899-6dcf-438e-9644-50e9022666d2)
+
+<br>
+select * from passagem
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/63fbd75b-d4e4-4060-9566-7f36d705a00b)
+
+<br>
+select * from assento
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/b5f2a239-500e-45eb-a0ca-4b27119872ad)
+
+<br>
+select * from equipamento 
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/98f61cd4-d97d-4c4a-8521-b2f35e0d4ee2)
+
+<br>
+select * from onibusequipamento
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/46a43187-45d7-4433-b857-a2eb11f3f668)
+
+<br>
+select * from rota
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/049c712e-a22e-4001-8187-673775dcd29d)
+
+<br>
+select * from viagem
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/4faf5178-5df4-4b17-a368-44d83b9ac7f9)
+
+<br>
+select * from onibusviagem
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/59a76074-235d-4579-82f3-212fe5d1f179)
+
+<br>
+select * from parada
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/24ed1f86-e827-4be6-928c-ccbd99b44610)
+
+<br>
+select * from rotaparada
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/d93b3d84-d155-422b-9936-534c1b711738)
+
+<br>
+
+ 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
 
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
