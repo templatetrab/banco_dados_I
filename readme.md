@@ -414,8 +414,55 @@ select * from rotaparada
  
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
 
+<br>
+select fk_pessoa_id from motorista where categoria_cnh = 'B'
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/03f1faef-56e7-42e4-ba7f-b715d9bbc0ac)
+
+<br>
+select nome from pessoa where id = 6
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/e4de89f2-1d8e-4a09-aea9-1dea88013686)
+
+<br>
+select id from parada where bairro = 'Copacabana'
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/63ad3243-b062-4223-a87d-cd509bc84b9a)
+
+<br>
+select * from passagem where fk_parada_id = 2
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/748d4a89-5450-4ea0-86c1-d399ff382aa8)
+
+
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
+select * from passagem where fk_parada_id = 2 or fk_parada_id = 4
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/2492c859-583d-48a7-b6a9-4ce738f8f1cb)
+
+<br>
+select * from motorista where categoria_cnh = 'E' or categoria_cnh = 'D'
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/8273ea27-a51a-495f-8ff0-8b28a4a87629)
+
+<br>
+select * from motorista where categoria_cnh = 'E' or not categoria_cnh = 'D'
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/53d493d7-d046-4299-9752-8ffc208fdaf4)
+
+<br>
+select nome from equipamento where nome = 'Wi-Fi' or not nome = 'TV'
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/18468b1e-8bc8-4943-b547-2eba65cea039)
+
+
+<br>
+select * from rota where origem = 'Fortaleza' and destino = 'Recife'
+
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/a3d47986-1c46-46fd-b87d-44002098d2e9)
+
+
     b) Criar no mínimo 3 consultas com operadores aritméticos 
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
 
