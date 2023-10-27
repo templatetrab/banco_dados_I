@@ -323,11 +323,7 @@ ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_2
 
 	      
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-        a) Script das instruções relativas a inclusão de dados 
-	Requisito mínimo: (Script dev conter: Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
-        OBS
-	1) Criar um novo banco de dados para testar a restauracao (em caso de falha na restauração o grupo não pontuará neste quesito)
-        2) script deve ser incluso no template em um arquivo no formato .SQL
+        (https://github.com/ericklyl/TrabalhoBD1/blob/main/INSERTS%20BD.sql)
 
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
