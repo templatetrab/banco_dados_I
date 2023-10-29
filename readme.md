@@ -646,8 +646,6 @@ Renomeia o campo "origem" para "cidade_origem" na tabela "VIAGEM"
 ![WhatsApp Image 2023-10-28 at 21 34 48](https://github.com/templatetrab/TemplateBD1/assets/109321308/6319195b-0d30-491b-9ffd-d37d2ff24af8)
 
 
-    b) Criar no mínimo 3 consultas com operadores aritméticos 
-    c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
