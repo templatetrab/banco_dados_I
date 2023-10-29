@@ -600,6 +600,51 @@ select * from rota where origem = 'Fortaleza' and destino = 'Recife'
 
 ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/a3d47986-1c46-46fd-b87d-44002098d2e9)
 
+<br>
+SELECT (SUM(salario) * 1.1) AS novo_salario
+
+Soma todos os salários da tabela "MOTORISTA" e, em seguida, multiplicação do resultado por 1.1 para aplicar um aumento de 10% nos salários
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/736871e2-71f9-4a33-8705-dbbf91cf1e73)
+
+<br>
+SELECT (SELECT SUM(estado) FROM ASSENTO) AS assentos_disponiveis,
+       (SELECT COUNT(*) FROM PASSAGEM) AS assentos_ocupados,
+       ((SELECT SUM(estado) FROM ASSENTO) - (SELECT COUNT(*) FROM PASSAGEM)) AS assentos_vagos;
+
+Calcula a diferença entre o número total de assentos disponíveis em todos os ônibus e o número total de assentos ocupados
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/e1a26b28-c5f7-43f0-9473-0dd57d03a7f2)
+
+<br>
+SELECT AVG(distancia) AS media_distancia
+FROM VIAGEM;
+
+Calcula a média de distância percorrida por viagem
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/0ca9e6aa-63f2-42c1-9c75-994c9eb87de5)
+
+<br>
+
+ALTER TABLE PESSOA
+RENAME COLUMN nome TO nome_completo
+
+Renomeia o campo "nome" para "nome_completo" na tabela "PESSOA"
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/17563f07-0dad-4124-a885-c521a32bfe51)
+
+<br>
+ALTER TABLE MOTORISTA
+RENAME TO CONDUTOR
+
+Renomeia a tabela "MOTORISTA" para "CONDUTOR"
+![WhatsApp Image 2023-10-29 at 18 57 40](https://github.com/templatetrab/TemplateBD1/assets/109321308/3affe4ee-2206-434e-93f6-c8bf964f3e1f)
+
+
+<br>
+
+SELECT origem AS cidade_origem, destino, distancia
+FROM VIAGEM
+
+Renomeia o campo "origem" para "cidade_origem" na tabela "VIAGEM"
+![WhatsApp Image 2023-10-28 at 21 34 48](https://github.com/templatetrab/TemplateBD1/assets/109321308/6319195b-0d30-491b-9ffd-d37d2ff24af8)
+
 
     b) Criar no mínimo 3 consultas com operadores aritméticos 
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
