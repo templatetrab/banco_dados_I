@@ -670,6 +670,8 @@ select p.nome_completo as "Passageiro", pass.origem, pass.destino from pessoa p 
 ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/2d4c5577-e952-4f2d-b16b-208f08dc5287)
 
 <br>
+select p.nome_completo, tp_cont.descricao from pessoa p right join contato cont on (p.id = cont.fk_pessoa_id) left join tipo_contato tp_cont on (cont.fk_tipo_contato_id = tp_cont.id)
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/ac28a2fb-e7e8-4cab-851c-f876a6812231)
 
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
