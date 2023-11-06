@@ -666,6 +666,11 @@ Renomeia o campo "origem" para "cidade_origem" na tabela "VIAGEM"
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
     a) Criar minimo 1 de cada tipo
+select p.nome_completo as "Passageiro", pass.origem, pass.destino from pessoa p right join passagem pass on (pass.fk_pessoa_id = p.id)
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/2d4c5577-e952-4f2d-b16b-208f08dc5287)
+
+<br>
+
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
