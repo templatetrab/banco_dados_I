@@ -648,8 +648,134 @@ Renomeia o campo "origem" para "cidade_origem" na tabela "VIAGEM"
 
 
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
-    a) Criar outras 5 consultas que envolvam like ou ilike
-    b) Criar uma consulta para cada tipo de função data apresentada.
+
+SELECT * FROM PESSOA WHERE nome_completo LIKE 'J%';
+
+Seleciona todas as pessoas que o nome inicia com J
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/e8565efc-6a71-46fa-adba-a1fa06d90c70)
+<br>
+
+SELECT * FROM PESSOA WHERE nome_completo LIKE 'A%a';
+
+Seleciona todas as pessoas que o nome inicia com A e termina com a
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/745c449c-1cd6-4b3a-8235-766097dd7d73)
+<br>
+
+SELECT PESSOA.nome_completo, TIPO_CONTATO.descricao AS tipo_contato FROM CONTATO 
+INNER JOIN TIPO_CONTATO ON CONTATO.fk_TIPO_CONTATO_id = TIPO_CONTATO.id
+INNER JOIN PESSOA ON CONTATO.fk_PESSOA_id = PESSOA.id
+WHERE TIPO_CONTATO.descricao ILIKE 'telefone';
+
+Seleciona todas as pessoas que tem como tipo de contato um telefone
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/a9f4e34a-c652-4d25-a9b0-579078485bea)
+<br>
+
+SELECT R.*
+FROM Rota R
+INNER JOIN RotaParada RP ON R.id = RP.fk_Rota_id
+INNER JOIN PARADA P ON RP.fk_PARADA_id = P.id
+WHERE P.cidade ILIKE 'rio de janeiro';
+
+Seleciona todas as rotas que tem parada no Rio de Janeiro
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/0d008ced-b4ee-4849-a646-5a06c0122632)
+<br>
+
+SELECT * FROM PESSOA WHERE cpf LIKE '1%';
+
+Seleciona todas as pessoas que o cpf inicia com 1
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/41e64487-3fd7-42f5-97d7-59d7ea79868d)
+<br>
+
+SELECT 
+    nome_passageiro,
+    origem,
+    destino,
+    valor,
+    FK_PESSOA_id,
+    FK_PARADA_id,
+    FK_ASSENTO_id,
+    data,
+    AGE(data, CURRENT_DATE) AS tempo_faltante
+FROM PASSAGEM;
+
+Seleciona todas as passagens e mostra o tempo que falta para viagem
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/bb43d7bf-0cdf-4b00-a5c4-306e0e0bc731)
+<br>
+
+SELECT 
+    OV.fk_ONIBUS_id,
+    OV.fk_VIAGEM_id,
+    OV.data,
+    OV.hrPartida,
+    OV.data + OV.hrPartida - (CURRENT_DATE + CURRENT_TIME) AS tempo_restante
+FROM OnibusViagem OV;
+
+Tempo que falta para partida de cada onibus
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/81ed4284-a645-4fbe-8070-8c127999d2d0)
+<br>
+
+SELECT
+    nome_completo,
+    dt_nasc AS aniversario
+FROM PESSOA
+WHERE EXTRACT(MONTH FROM dt_nasc) BETWEEN EXTRACT(MONTH FROM current_date) AND EXTRACT(MONTH FROM current_date) + 3;
+
+Seleciona pessoas com aniversarios nos proximos 3 meses
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/4508672a-515b-4bf7-97a1-13c4c130d33f)
+<br>
+
+SELECT nome_passageiro, origem, destino, data
+FROM PASSAGEM
+WHERE data >= NOW()
+
+Todas as passagens marcadas pra depois do dia da consulta
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/ce28e936-560b-442b-94be-f6e217f59330)
+<br>
+
+SELECT 
+    P.nome_completo AS nome_motorista,
+    date_part('year', age(current_date, P.dt_nasc)) AS idade
+FROM CONDUTOR C
+INNER JOIN PESSOA P ON C.FK_PESSOA_id = P.id;
+
+Idade de cada motorista
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/40a723b2-62c7-487d-ba0e-6aba5baa8d8d)
+<br>
+
+SELECT 
+    pa.nome_passageiro,
+    pa.origem,
+    pa.destino,
+    pa.data
+FROM PASSAGEM pa
+JOIN PESSOA p ON pa.FK_PESSOA_id = p.id
+WHERE EXTRACT(YEAR FROM pa.data) = EXTRACT(YEAR FROM CURRENT_DATE) AND EXTRACT(MONTH FROM pa.data) BETWEEN 9 AND 12;
+
+Passagens entre o mes 9 e o mes 12 do ano em que foi feita a consulta
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/1371d321-2373-48f0-b7ec-e67ca60e3906)
+<br>
+
+SELECT 
+    P.nome_completo AS nome_motorista,
+    EXTRACT(YEAR FROM C.validade_cnh) AS ano_validade_cnh
+FROM CONDUTOR C
+INNER JOIN PESSOA P ON C.FK_PESSOA_id = P.id;
+
+Ano em que vence a cnh dos motoristas
+<br>
+![image](https://github.com/ericklyl/TrabalhoBD1/assets/136522676/12666d4c-d384-4b14-9e29-b93f62548d8d)
+<br>
 
 ># Marco de Entrega 02: Do item 6. até o item 9.1 (5 PTS) <br>
 
