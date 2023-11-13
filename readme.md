@@ -882,28 +882,28 @@ Ano em que vence a cnh dos motoristas
     a) Criar minimo 2 envolvendo algum tipo de junção
 
 <br>
-select origem from passagem group by origem;
+SELECT origem FROM passagem GROUP BY origem;
 
 ![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/11573d26-0c59-420e-9645-45994d81a811)
 
 <br>
 
 <br>
-select valor from passagem group by valor;
+SELECT valor FROM passagem GROUP BY valor;
 
 ![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/d41db21a-90b6-4d53-8cc0-a2c84ae9a86d)
 
 <br>
 
 <br>
-select valor, count(*) from passagem group by valor;
+SELECT valor, count(*) FROM passagem GROUP BY valor;
 
 ![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/5bc21d1f-af1a-4b0e-93d3-fa1a18ff383c)
 
 <br>
 
 <br>
-select valor from passagem group by valor having valor > 100;
+SELECT valor FROM passagem GROUP BY valor having valor > 100;
 
 ![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/969290ae-f899-449c-8dbc-69429c40b579)
 
