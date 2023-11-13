@@ -881,6 +881,56 @@ Ano em que vence a cnh dos motoristas
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
     a) Criar minimo 2 envolvendo algum tipo de junção
 
+<br>
+select origem from passagem group by origem;
+
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/11573d26-0c59-420e-9645-45994d81a811)
+
+<br>
+
+<br>
+select valor from passagem group by valor;
+
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/d41db21a-90b6-4d53-8cc0-a2c84ae9a86d)
+
+<br>
+
+<br>
+select valor, count(*) from passagem group by valor;
+
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/5bc21d1f-af1a-4b0e-93d3-fa1a18ff383c)
+
+<br>
+
+<br>
+select valor from passagem group by valor having valor > 100;
+
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/969290ae-f899-449c-8dbc-69429c40b579)
+
+<br>
+
+<br>
+SELECT R.id AS id_rota, R.Origem, R.Destino, COUNT(RP.fk_PARADA_id) AS total_paradas FROM Rota R
+LEFT JOIN RotaParada RP ON R.id = RP.fk_Rota_id GROUP BY R.id, R.Origem, R.Destino
+ORDER BY total_paradas DESC;
+
+O número total de paradas em cada rota
+
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/25bcec2c-b322-4fe1-a185-d9376cd0d6c4)
+
+<br>
+
+<br>
+SELECT P.cidade, COUNT(RP.fk_Rota_id) AS total_rotas
+FROM PARADA P LEFT JOIN RotaParada RP ON P.id = RP.fk_PARADA_id
+GROUP BY P.cidade ORDER BY total_rotas DESC;
+
+número total de rotas que passam por cada cidade onde há uma parada
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/79cb64df-218b-4e91-9de5-afb5c3ac0be4)
+
+
+<br>
+
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
     a) Criar minimo 1 de cada tipo
 select p.nome_completo as "Passageiro", pass.origem, pass.destino from pessoa p right join passagem pass on (pass.fk_pessoa_id = p.id)
@@ -911,6 +961,39 @@ create view passageiro_viagem as SELECT p.nome_completo as "Passageiro", parada.
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
      b) Criar minimo 1 envolvendo algum tipo de junção
+
+<br>
+SELECT salario
+FROM condutor WHERE salario > (SELECT avg(salario) from condutor)  
+
+todos os salários da tabela condutor que são maiores que a média dos salários na mesma tabela
+
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/57079c38-951b-4d60-b3f5-3869325b889f)
+
+<br>
+
+<br>
+SELECT valor
+FROM passagem WHERE valor> (SELECT avg(valor) from passagem)
+
+ Retorna todos os valores das passagens que estão acima da média geral dos valores de passagens na tabela
+
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/5f8ddd3d-e787-4ab9-bd85-92e31f62c222)
+
+<br>
+
+<br>
+Calcula a média dos valores das passagens pra cada destino presente na tabela passagem
+
+SELECT P.destino, AVG(P.valor) AS media_valor_passagem
+FROM passagem P
+WHERE P.destino IN (SELECT destino FROM passagem GROUP BY destino)GROUP BY P.destino;
+
+Calcula a média dos valores das passagens pra cada destino presente na tabela passagem
+![image](https://github.com/templatetrab/TemplateBD1/assets/109321308/626d5e0d-5db5-4c4c-9f15-57f0893ab9ee)
+
+<br>
+
 
 ># Marco de Entrega 03: Do item 9.2 até o ítem 9.10 (10 PTS)<br>
 
