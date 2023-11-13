@@ -781,11 +781,102 @@ Ano em que vence a cnh dos motoristas
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
+	1- DELETE FROM CONTATO WHERE fk_PESSOA_id = 4 and fk_tipo_contato_id = 2;
+	2- DELETE FROM OnibusEquipamento WHERE fk_EQUIPAMENTO_id = 4 and fk_onibus_id = 3;
+	3- DELETE FROM tipo_contato WHERE id = 6;
+
     b) Criar minimo 3 de atualização
+    	1- UPDATE CONDUTOR SET salario = 3000 WHERE fk_pessoa_id = 1;
+	2- UPDATE CONDUTOR SET categoria_cnh = 'E' WHERE FK_PESSOA_id = 3;
+	3- UPDATE ONIBUS SET tipo_leito = 'Leito-Cama' WHERE id = 5;
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
+    SELECT 
+    PESSOA.nome AS pessoa_nome,
+    PESSOA.cpf,
+    PESSOA.dt_nasc,
+    MOTORISTA.categoria_cnh,
+    MOTORISTA.validade_cnh,
+    MOTORISTA.salario,
+    TIPO_CONTATO.descricao AS tipo_contato,
+    CONTATO.fk_TIPO_CONTATO_id,
+    CONTATO.fk_PESSOA_id AS contato_pessoa_id,
+    Rota.Origem AS rota_origem,
+    Rota.Destino AS rota_destino,
+    PARADA.nome AS parada_nome,
+    PARADA.cidade AS parada_cidade,
+    PARADA.bairro AS parada_bairro,
+    RotaParada.fk_PARADA_id AS rota_parada_id,
+    RotaParada.fk_Rota_id AS rota_parada_rota_id,
+    EQUIPAMENTO.nome AS equipamento_nome,
+    ONIBUS.tipo_leito,
+    ONIBUS.n_chassi,
+    OnibusEquipamento.fk_EQUIPAMENTO_id AS onibus_equipamento_id,
+    OnibusEquipamento.fk_ONIBUS_id AS onibus_equipamento_onibus_id,
+    ASSENTO.estado AS assento_estado,
+    MotoristaOnibus.fk_PESSOA_id AS motorista_onibus_pessoa_id,
+    MotoristaOnibus.fk_ONIBUS_id AS motorista_onibus_onibus_id,
+    VIAGEM.desembarque,
+    VIAGEM.distancia,
+    VIAGEM.tempo,
+    VIAGEM.embarque,
+    PASSAGEM.n_assento AS passagem_assento,
+    PASSAGEM.nome_passageiro,
+    PASSAGEM.origem AS passagem_origem,
+    PASSAGEM.destino AS passagem_destino,
+    PASSAGEM.valor AS passagem_valor,
+    PASSAGEM.FK_PESSOA_id AS passagem_pessoa_id,
+    PASSAGEM.FK_PARADA_id AS passagem_parada_id,
+    PASSAGEM.FK_ASSENTO_id AS passagem_assento_id,
+    PASSAGEM.data AS passagem_data,
+    OnibusViagem.fk_ONIBUS_id AS onibus_viagem_onibus_id,
+    OnibusViagem.fk_VIAGEM_id AS onibus_viagem_viagem_id,
+    OnibusViagem.data AS onibus_viagem_data,
+    OnibusViagem.hrPartida AS onibus_viagem_hrPartida
+	FROM PESSOA
+	JOIN MOTORISTA ON PESSOA.id = MOTORISTA.FK_PESSOA_id
+	JOIN CONTATO ON PESSOA.id = CONTATO.fk_PESSOA_id
+	JOIN TIPO_CONTATO ON CONTATO.fk_TIPO_CONTATO_id = TIPO_CONTATO.id
+	JOIN RotaParada ON RotaParada.fk_Rota_id = Rota.id
+	JOIN PARADA ON RotaParada.fk_PARADA_id = PARADA.id
+	JOIN EQUIPAMENTO ON OnibusEquipamento.fk_EQUIPAMENTO_id = EQUIPAMENTO.id
+	JOIN ONIBUS ON OnibusEquipamento.fk_ONIBUS_id = ONIBUS.id
+	JOIN ASSENTO ON ONIBUS.id = ASSENTO.FK_ONIBUS_id
+	JOIN MotoristaOnibus ON PESSOA.id = MotoristaOnibus.fk_PESSOA_id
+	JOIN VIAGEM ON ONIBUS.id = VIAGEM.FK_Rota_id
+	JOIN PASSAGEM ON PESSOA.id = PASSAGEM.FK_PESSOA_id
+	JOIN OnibusViagem ON ONIBUS.id = OnibusViagem.fk_ONIBUS_id
+	WHERE (SELECT COUNT(*) FROM PESSOA) >= 2 AND (SELECT COUNT(*) FROM MOTORISTA) >= 2;
+ 
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+
+    	1- 
+	SELECT *
+	FROM MOTORISTA
+	JOIN PESSOA ON MOTORISTA.FK_PESSOA_id = PESSOA.id;
+	
+	2-
+	SELECT *
+	FROM RotaParada
+	JOIN Rota ON RotaParada.fk_Rota_id = Rota.id
+	JOIN Parada ON RotaParada.fk_PARADA_id = Parada.id;
+	
+	3-
+	SELECT *
+	FROM OnibusEquipamento
+	JOIN ONIBUS ON OnibusEquipamento.fk_ONIBUS_id = ONIBUS.id
+	JOIN EQUIPAMENTO ON OnibusEquipamento.fk_EQUIPAMENTO_id = EQUIPAMENTO.id;
+	
+	4-
+	SELECT *
+	FROM VIAGEM
+	JOIN Rota ON VIAGEM.FK_Rota_id = Rota.id;
+	
+	5-
+	SELECT *
+	FROM PASSAGEM
+	JOIN PESSOA ON PASSAGEM.FK_PESSOA_id = PESSOA.id;
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
     a) Criar minimo 2 envolvendo algum tipo de junção
