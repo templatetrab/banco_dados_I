@@ -958,6 +958,17 @@ O self join não ocorre dentro do nosso banco de dados pois não existe nenhuma 
 create view passageiro_viagem as SELECT p.nome_completo as "Passageiro", parada.nome, parada.cidade from pessoa p inner join passagem pass on (pass.fk_pessoa_id = p.id) inner join parada on (pass.fk_parada_id = parada.id)
 <br>
 
+create view motorista_viagem as SELECT p.nome_completo as "Motorista", v.datapartida as "DATA", v.hrPartida as "HORA", v.origem, v.destino, v.distancia from pessoa p inner join condutor m on (p.id = m.fk_pessoa_id) inner join motoristaonibus moton on (m.fk_pessoa_id = moton.fk_pessoa_id) inner join onibus o on (moton.fk_onibus_id = o.id) inner join viagem v on (o.id = v.fk_onibus_id)
+
+<br>
+create view pessoa_contato as  select p.nome_completo, c.descricao from pessoa p inner join contato c on (p.id = c.fk_pessoa_id)
+
+<br> 
+create view onibus_assento select a.id, a.ocupado from assento a inner join onibus o on (a.fk_onibus_id = o.id) inner join viagem v on (o.id = v.fk_onibus_id)
+
+<br>
+
+
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
      b) Criar minimo 1 envolvendo algum tipo de junção
