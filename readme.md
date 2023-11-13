@@ -891,11 +891,22 @@ select p.nome_completo, tp_cont.descricao from pessoa p right join contato cont 
 
 ![image](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/2f1b8d89-1c87-47c9-822b-d76f5d2817a8)
 
+select v.embarque, v.desembarque, onibv.data as "data_embarque",
+onibv.hrpartida from viagem v full join onibusviagem onibv on ( v.id =
+onibv.fk_viagem_id)
+
+select r.origem, p.nome as "parada", p.cidade from Parada p right join
+rotaparada rp on (p.id = rp.fk_parada_id) left join rota r on
+(rp.fk_rota_id = r.id)
 
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
+O self join não ocorre dentro do nosso banco de dados pois não existe nenhuma auto relação existente.
         b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+
+create view passageiro_viagem as SELECT p.nome_completo as "Passageiro", parada.nome, parada.cidade from pessoa p inner join passagem pass on (pass.fk_pessoa_id = p.id) inner join parada on (pass.fk_parada_id = parada.id)
+<br>
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
