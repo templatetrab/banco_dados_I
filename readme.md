@@ -964,10 +964,13 @@ create view motorista_viagem as SELECT p.nome_completo as "Motorista", v.datapar
 create view pessoa_contato as  select p.nome_completo, c.descricao from pessoa p inner join contato c on (p.id = c.fk_pessoa_id)
 
 <br> 
-create view onibus_assento select a.id, a.ocupado from assento a inner join onibus o on (a.fk_onibus_id = o.id) inner join viagem v on (o.id = v.fk_onibus_id)
+create view onibus_assento as select a.id, a.ocupado from assento a inner join onibus o on (a.fk_onibus_id = o.id) inner join viagem v on (o.id = v.fk_onibus_id)
 
 <br>
+create view total_viagens as select v.origem, v.destino, count(*), sum(p.valor) from viagem v inner join onibus o on (v.fk_onibus_id = o.id) inner join assento a on (o.id = a.fk_onibus_id) inner join passagem p on (a.id = p.fk_assento_id) where (a.fk_onibus_id = f.fk_onibus_id) group by v.id
 
+<br>
+create view motorista_onibus as select p.nome_completo as "Condutor", o.n_chassi as "Chassi" from pessoa p inner join condutor c on (p.id = c.fk_pessoa_id) inner join motoristaonibus moton on (c.fk_pessoa_id = moton.fk_pessoa_id) inner join onibus o on (moton.fk_onibus_id = o.id)
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
