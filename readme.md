@@ -60,58 +60,57 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 
 #### 5.2 Descrição dos dados 
 	Pessoa: Uma tabela que armazena informações relacionadas a indivíduos.
-	ID (Chave Primária): Identificador único da pessoa.
-	Nome: Nome completo da pessoa.
-	CPF: Número de Cadastro de Pessoa Física da pessoa.
-	Data de Nascimento: Data de nascimento da pessoa.
+	ID (Chave Primária): Identificador único da pesso;
+	nome: Nome completo da pessoa;
+	cpf: Número de Cadastro de Pessoa Física da pessoa;
+	dt_nasc: Data de nascimento da pessoa.
+
+ 	Tipo_contato: Uma tabela que armazena os diferentes tipos de contato das pessoas
+	ID (Chave Primária): Identificador único do contato;
+ 	descrição: Descrição do contato.
 	
-	Motorista: Uma tabela que contém informações sobre motoristas.
-	Categoria de CNH: Categoria da Carteira Nacional de Habilitação (CNH) do motorista.
-	Validade de CNH: Data de validade da CNH do motorista.
-	Salário: Remuneração do motorista.
+	Motorista: Uma tabela que contém informações sobre motoristas dos ônibus.
+	categoria_cnh: Categoria da Carteira Nacional de Habilitação (CNH) do motorista;
+	validade_cnh: Data de validade da CNH do motorista;
+	salario: Remuneração do motorista.
 	
 	Passagem: Uma tabela que registra informações sobre passagens de ônibus.
 	ID (Chave Primária): Identificador único da passagem.
-	Número do Assento: Número do assento associado à passagem.
-	Nome do Passageiro: Nome do passageiro que adquiriu a passagem.
-	Origem: Cidade de origem da viagem.
-	Destino: Cidade de destino ou parada da viagem.
-	Valor: Valor da passagem.
+	n_assento: Número do assento associado à passagem.
+	nome_passageiro: Nome do passageiro que adquiriu a passagem.
+	origem: Cidade de origem da viagem.
+	destino: Cidade de destino ou parada da viagem.
+	valor: Valor da passagem.
 	
 	Assento: Tabela que armazena informações sobre os assentos dos ônibus.
-	ID (Chave Primária): Identificador único do assento.
-	Estado: Estado atual do assento.
+	ID (Chave Primária): Identificador único do assento;
+	estado: Estado atual do assento (ocupado ou desocupado).
 	
 	Ônibus: Uma tabela que contém informações sobre os ônibus utilizados nas viagens.
 	ID (Chave Primária): Identificador único do ônibus.
-	Tipo de Leito: Categoria do leito (por exemplo, executivo, semi leito, leito cama e convencional).
-	Nº Chassi: Número de chassi do ônibus.
+	tipo_leito: Categoria do leito(exemplo: executivo, semi leito, convencional, etc).
+	n_chassi: Número de chassi do ônibus.
 	
 	Viagem: Tabela que registra informações sobre as viagens realizadas.
 	ID (Chave Primária): Identificador único da viagem.
-	Tempo: Duração da viagem.
-	Distância: Distância entre a cidade de origem e o destino da viagem.
-	Embarque: Local de embarque da viagem, identificado pelo nome da cidade.
-	Desembarque: Local de destino da viagem, identificado pelo nome da cidade.
+	tempo: Duração da viagem.
+	distancia: Distância entre a cidade de origem e o destino da viagem.
+	embarque: Local de embarque da viagem, identificado pelo nome da cidade.
+	desembarque: Local de destino da viagem, identificado pelo nome da cidade.
 
 	Rota: Tabela que contém toda a rota percorrida pelo ônibus
  	ID (Chave Primária): Identificador único daquela rota específica
-  	Destino: Local de destino da viagem
-   	Origem: Local de Origem da viagem
+  	destino: Local de destino da viagem
+   	drigem: Local de Origem da viagem
  
 	Parada: Tabela que contém informações sobre as paradas de ônibus durante a viagem.
 	ID (Chave Primária): Identificador único da parada.
-	Cidade: Nome da cidade onde a parada ocorre.
-	Bairro: Nome do bairro da parada (se aplicável).
-	Nome: Nome da parada em si.
+	cidade: Nome da cidade onde a parada ocorre.
+	bairro: Nome do bairro da parada (se aplicável).
+	nome: Nome da parada em si.
 
  	Reserva: Tabela que contem informações sobre a reserva
   	Data: Data da reserva
-
-	Tipo de Contato: Tabela que mostra os possíveis tipos de contato que uma pessoa pode ter
- 	ID (Chave Primária): Identificador único do tipo de contato.
-  	Descrição: Define o tipo de contato.
-
 
 ># Marco de Entrega 01: Do item 1 até o item 5.2 (5 PTS) <br> 
 
