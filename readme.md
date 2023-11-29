@@ -120,194 +120,279 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 
 
 ### 7	MODELO FÍSICO<br>
-
-DROP TABLE IF EXISTS PESSOA; <br>
-CREATE TABLE PESSOA ( <br>
-    id SERIAL PRIMARY KEY,
-    nome VARCHAR(60),
-    cpf CHAR(16),
-    dt_nasc DATE
-);
-
-DROP TABLE IF EXISTS MOTORISTA; <br>
-CREATE TABLE MOTORISTA ( <br>
-    categoria_cnh CHAR(2),
-    validade_cnh DATE,
-    salario float,
-    FK_PESSOA_id INT,
-    id SERIAL PRIMARY KEY
-);
-
-DROP TABLE IF EXISTS TIPO_CONTATO; <br>
-CREATE TABLE TIPO_CONTATO ( <br>
-    descricao VARCHAR(20),
-    id SERIAL PRIMARY KEY
-);
-
-DROP TABLE IF EXISTS Rota; <br>
-CREATE TABLE Rota ( <br>
-    Origem char(30),
-    Destino char(30),
-    id SERIAL PRIMARY KEY
-);
-
-DROP TABLE IF EXISTS VIAGEM; <br>
-CREATE TABLE VIAGEM ( <br>
-    desembarque varchar(30),
-    distancia float,
-    tempo TIME,
-    id SERIAL PRIMARY KEY,
-    embarque varchar(30),
-    FK_Rota_id INT
-);
-
-DROP TABLE IF EXISTS PARADA; <br>
-CREATE TABLE PARADA ( <br>
-    nome varchar(50),
-    cidade varchar(50),
-    bairro varchar(50),
-    id SERIAL PRIMARY KEY
-);
-
-DROP TABLE IF EXISTS EQUIPAMENTO; <br>
-CREATE TABLE EQUIPAMENTO ( <br>
-    id SERIAL PRIMARY KEY,
-    nome varchar(30)
-);
-
-DROP TABLE IF EXISTS ONIBUS; <br>
-CREATE TABLE ONIBUS ( <br>
-    id SERIAL PRIMARY KEY,
-    tipo_leito varchar(16),
-    n_chassi char(18)
-);
-
-DROP TABLE IF EXISTS OnibusEquipamento; <br>
-CREATE TABLE OnibusEquipamento ( <br>
-    fk_ONIBUS_id INT,
-    fk_EQUIPAMENTO_id INT
-);
-
-DROP TABLE IF EXISTS OnibusViagem; <br>
-CREATE TABLE OnibusViagem ( <br>
-    fk_ONIBUS_id INT,
-    fk_VIAGEM_id INT,
-    data DATE,
-    hrPartida TIME
-);
-
-DROP TABLE IF EXISTS MotoristaOnibus; <br>
-CREATE TABLE MotoristaOnibus ( <br>
-    fk_PESSOA_id INT,
-    fk_ONIBUS_id INT
-);
-
-DROP TABLE IF EXISTS PASSAGEM; <br>
-CREATE TABLE PASSAGEM ( <br>
-    id SERIAL PRIMARY KEY,
-    n_assento INT,
-    nome_passageiro char(80),
-    origem char(80),
-    destino char(80),
-    valor float,
-    FK_PESSOA_id INT,
-    FK_PARADA_id INT,
-    FK_ASSENTO_id INT,
-    data DATE
-);
-
-DROP TABLE IF EXISTS ASSENTO; <br>
-CREATE TABLE ASSENTO ( <br>
-    id SERIAL PRIMARY KEY,
-    estado INT,
-    FK_ONIBUS_id INT
-);
-
-ALTER TABLE MOTORISTA ADD CONSTRAINT FK_MOTORISTA_2 <br>
-    FOREIGN KEY (FK_PESSOA_id)
-    REFERENCES PESSOA (id)
-    ON DELETE CASCADE;
- 
-ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_1 <br>
-    FOREIGN KEY (fk_TIPO_CONTATO_id)
-    REFERENCES TIPO_CONTATO (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_2 <br>
-    FOREIGN KEY (fk_PESSOA_id)
-    REFERENCES PESSOA (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE RotaParada ADD CONSTRAINT FK_RotaParada_1 <br>
-    FOREIGN KEY (fk_PARADA_id)
-    REFERENCES PARADA (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE RotaParada ADD CONSTRAINT FK_RotaParada_2 <br>
-    FOREIGN KEY (fk_Rota_id)
-    REFERENCES Rota (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE OnibusViagem ADD CONSTRAINT FK_OnibusViagem_1 <br>
-    FOREIGN KEY (fk_ONIBUS_id)
-    REFERENCES ONIBUS (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE OnibusViagem ADD CONSTRAINT FK_OnibusViagem_2 <br>
-    FOREIGN KEY (fk_VIAGEM_id)
-    REFERENCES VIAGEM (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE VIAGEM ADD CONSTRAINT FK_VIAGEM_2 <br>
-    FOREIGN KEY (FK_Rota_id)
-    REFERENCES Rota (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE OnibusEquipamento ADD CONSTRAINT FK_OnibusEquipamento_1 <br>
-    FOREIGN KEY (fk_ONIBUS_id)
-    REFERENCES ONIBUS (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE OnibusEquipamento ADD CONSTRAINT FK_OnibusEquipamento_2 <br>
-    FOREIGN KEY (fk_EQUIPAMENTO_id)
-    REFERENCES EQUIPAMENTO (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_2 <br>
-    FOREIGN KEY (FK_PESSOA_id)
-    REFERENCES PESSOA (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_3 <br>
-    FOREIGN KEY (FK_PARADA_id)
-    REFERENCES PARADA (id)
-    ON DELETE CASCADE;
- 
-ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_4 <br>
-    FOREIGN KEY (FK_ASSENTO_id)
-    REFERENCES ASSENTO (id)
-    ON DELETE CASCADE;
- 
-ALTER TABLE ASSENTO ADD CONSTRAINT FK_ASSENTO_2 <br>
-    FOREIGN KEY (FK_ONIBUS_id)
-    REFERENCES ONIBUS (id)
-    ON DELETE RESTRICT;
- 
-ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_1 <br>
-    FOREIGN KEY (fk_PESSOA_id)
-    REFERENCES PESSOA (id)
-    ON DELETE SET NULL;
- 
-ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_2 <br>
-    FOREIGN KEY (fk_ONIBUS_id)
-    REFERENCES ONIBUS (id)
-    ON DELETE SET NULL;
-
+		
+		DROP TABLE IF EXISTS PESSOA;
+		CREATE TABLE PESSOA (
+		    id SERIAL PRIMARY KEY,
+		    nome_completo VARCHAR(60),
+		    cpf CHAR(16),
+		    dt_nasc DATE
+		);
+		
+		DROP TABLE IF EXISTS CONDUTOR;
+		CREATE TABLE CONDUTOR (
+		    categoria_cnh CHAR(2),
+		    validade_cnh DATE,
+		    salario FLOAT,
+		    FK_PESSOA_id INT PRIMARY KEY
+		);
+		
+		DROP TABLE IF EXISTS TIPO_CONTATO;
+		CREATE TABLE TIPO_CONTATO (
+		    descricao VARCHAR(20),
+		    id SERIAL PRIMARY KEY
+		);
+		
+		DROP TABLE IF EXISTS CONTATO;
+		CREATE TABLE CONTATO (
+		    fk_TIPO_CONTATO_id INT,
+		    fk_PESSOA_id INT,
+		    descricao varchar(50)
+		);
+		
+		DROP TABLE IF EXISTS viagem;
+		CREATE TABLE VIAGEM (
+		    distancia FLOAT,
+		    tempo TIME,
+		    id SERIAL PRIMARY KEY,
+		    embarque char(30),
+		    desembarque char(30),
+		    hrPartida TIME,
+		    dataPartida DATE,
+		    fk_ONIBUS_id INT
+		);
+		
+		DROP TABLE IF EXISTS PARADA;
+		CREATE TABLE PARADA (
+		    nome varchar(50),
+		    cidade varchar(50),
+		    bairro varchar(50),
+		    id SERIAL PRIMARY KEY
+		);
+		
+		DROP TABLE IF EXISTS EQUIPAMENTO;
+		CREATE TABLE EQUIPAMENTO (
+		    id SERIAL PRIMARY KEY,
+		    nome varchar(30)
+		);
+		
+		DROP TABLE IF EXISTS OnibusEquipamento;
+		CREATE TABLE OnibusEquipamento (
+		    fk_ONIBUS_id INT,
+		    fk_EQUIPAMENTO_id INT
+		);
+		
+		DROP TABLE IF EXISTS ONIBUS;
+		CREATE TABLE ONIBUS (
+		    id SERIAL PRIMARY KEY,
+		    tipo_leito varchar(16),
+		    n_chassi char(18)
+		);
+		
+		DROP TABLE IF EXISTS PASSAGEM;
+		CREATE TABLE PASSAGEM (
+		    id SERIAL PRIMARY KEY,
+		    n_assento INT,
+		    nome_passageiro char(80),
+		    valor FLOAT,
+		    FK_PESSOA_id INT,
+		    FK_PARADA_id INT,
+		    FK_ASSENTO_id INT,
+		    data DATE
+		);
+		
+		DROP TABLE IF EXISTS ASSENTO;
+		CREATE TABLE ASSENTO (
+		    id SERIAL PRIMARY KEY,
+		    ocupado BOOLEAN,
+		    FK_ONIBUS_id INT
+		);
+		
+		DROP TABLE IF EXISTS MotoristaOnibus;
+		CREATE TABLE MotoristaOnibus (
+		    fk_PESSOA_id INT,
+		    fk_ONIBUS_id INT
+		);
+		
+		DROP TABLE IF EXISTS ViagemParada;
+		CREATE TABLE ViagemParada (
+		    FK_VIAGEM_id INT,
+		    FK_PARADA_id INT
+		);
+		 
+		ALTER TABLE CONDUTOR ADD CONSTRAINT FK_CONDUTOR_2
+		    FOREIGN KEY (FK_PESSOA_id)
+		    REFERENCES PESSOA (id)
+		    ON DELETE CASCADE;
+		 
+		ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_1
+		    FOREIGN KEY (fk_TIPO_CONTATO_id)
+		    REFERENCES TIPO_CONTATO (id)
+		    ON DELETE SET NULL;
+		 
+		ALTER TABLE CONTATO ADD CONSTRAINT FK_CONTATO_2
+		    FOREIGN KEY (fk_PESSOA_id)
+		    REFERENCES PESSOA (id)
+		    ON DELETE SET NULL;
+		 
+		ALTER TABLE VIAGEM ADD CONSTRAINT FK_VIAGEM_2
+		    FOREIGN KEY (fk_ONIBUS_id)
+		    REFERENCES ONIBUS (id)
+		    ON DELETE RESTRICT;
+		 
+		ALTER TABLE OnibusEquipamento ADD CONSTRAINT FK_OnibusEquipamento_1
+		    FOREIGN KEY (fk_ONIBUS_id)
+		    REFERENCES ONIBUS (id)
+		    ON DELETE RESTRICT;
+		 
+		ALTER TABLE OnibusEquipamento ADD CONSTRAINT FK_OnibusEquipamento_2
+		    FOREIGN KEY (fk_EQUIPAMENTO_id)
+		    REFERENCES EQUIPAMENTO (id)
+		    ON DELETE SET NULL;
+		 
+		ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_2
+		    FOREIGN KEY (FK_PESSOA_id)
+		    REFERENCES PESSOA (id)
+		    ON DELETE SET NULL;
+		 
+		ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_3
+		    FOREIGN KEY (FK_PARADA_id)
+		    REFERENCES PARADA (id)
+		    ON DELETE CASCADE;
+		 
+		ALTER TABLE PASSAGEM ADD CONSTRAINT FK_PASSAGEM_4
+		    FOREIGN KEY (FK_ASSENTO_id)
+		    REFERENCES ASSENTO (id)
+		    ON DELETE CASCADE;
+		 
+		ALTER TABLE ASSENTO ADD CONSTRAINT FK_ASSENTO_2
+		    FOREIGN KEY (FK_ONIBUS_id)
+		    REFERENCES ONIBUS (id)
+		    ON DELETE RESTRICT;
+		 
+		ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_1
+		    FOREIGN KEY (fk_PESSOA_id)
+		    REFERENCES PESSOA (id)
+		    ON DELETE SET NULL;
+		 
+		ALTER TABLE MotoristaOnibus ADD CONSTRAINT FK_MotoristaOnibus_2
+		    FOREIGN KEY (fk_ONIBUS_id)
+		    REFERENCES ONIBUS (id)
+		    ON DELETE SET NULL;
+		 
+		ALTER TABLE ViagemParada ADD CONSTRAINT FK_ViagemParada_1
+		    FOREIGN KEY (FK_VIAGEM_id)
+		    REFERENCES VIAGEM (id);
+		 
+		ALTER TABLE ViagemParada ADD CONSTRAINT FK_ViagemParada_2
+		    FOREIGN KEY (FK_PARADA_id)
+		    REFERENCES PARADA (id);
 
 	      
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-        https://github.com/ericklyl/TrabalhoBD1/blob/main/INSERTS%20BD.sql
- 
+ 	INSERT INTO PESSOA (nome_completo, cpf, dt_nasc) VALUES
+	('João da Silva', '123.456.789-01', '1990-05-15'),
+	('Maria Souza', '987.654.321-02', '1985-08-20'),
+	('Carlos Santos', '456.789.123-03', '1995-02-10'),
+	('Ana Oliveira', '111.222.333-04', '1988-12-03'),
+	('Pedro Almeida', '444.555.666-05', '1992-07-25');
+	
+	INSERT INTO CONDUTOR (categoria_cnh, validade_cnh, salario, FK_PESSOA_id) VALUES
+	('B', '2025-01-01', 3000.00, 1),
+	('C', '2024-06-01', 3500.00, 2),
+	('D', '2023-12-01', 4000.00, 3),
+	('A', '2022-05-01', 2800.00, 4),
+	('E', '2023-08-01', 4200.00, 5);
+	
+	INSERT INTO TIPO_CONTATO (descricao) VALUES
+	('Telefone'),
+	('E-mail'),
+	('Instagram'),
+	('Twitter'),
+	('Facebook');
+	
+	INSERT INTO CONTATO (fk_TIPO_CONTATO_id, fk_PESSOA_id, descricao) VALUES
+	(1, 1, '1234-5678'),
+	(2, 1, 'joao@email.com'),
+	(3, 1, '@joao_instagram'),
+	(1, 2, '9876-5432'),
+	(2, 2, 'maria@email.com'),
+	(3, 2, '@maria_instagram'),
+	(1, 3, '2345-6789'),
+	(2, 3, 'carlos@email.com'),
+	(3, 3, '@carlos_instagram'),
+	(1, 4, '3456-7890'),
+	(2, 4, 'ana@email.com'),
+	(3, 4, '@ana_instagram'),
+	(1, 5, '4567-8901'),
+	(2, 5, 'pedro@email.com'),
+	(3, 5, '@pedro_instagram');
+	
+	INSERT INTO PARADA (nome, cidade, bairro) VALUES
+	('Rodoviária de São Paulo', 'São Paulo', 'Centro'),
+	('Terminal de Campinas', 'Campinas', 'Bairro das Laranjeiras'),
+	('Ponto de Belo Horizonte', 'Belo Horizonte', 'Bairro de Fatima'),
+	('Estação de Curitiba', 'Curitiba', 'Centro'),
+	('Parada de Florianópolis', 'Florianópolis', 'Consolação');
+	
+	INSERT INTO ONIBUS (tipo_leito, n_chassi) VALUES
+	('Executivo', 'ABC12345678901234'),
+	('Leito', 'DEF12345678901234'),
+	('Semi-leito', 'GHI12345678901234'),
+	('Executivo', 'JKL12345678901234'),
+	('Leito', 'MNO12345678901234');
+	
+	INSERT INTO VIAGEM (distancia, tempo, embarque, desembarque, hrPartida, dataPartida, fk_ONIBUS_id) VALUES
+	(300.5, '08:00:00', 'São Paulo', 'Campinas', '08:00:00', '2023-01-15', 1),
+	(200.2, '10:30:00', 'Campinas', 'Belo Horizonte', '10:30:00', '2023-02-20', 2),
+	(400.8, '14:15:00', 'Belo Horizonte', 'Curitiba', '14:15:00', '2023-03-25', 3),
+	(150.3, '09:45:00', 'Curitiba', 'Florianópolis', '09:45:00', '2023-04-10', 4),
+	(250.6, '12:20:00', 'Florianópolis', 'São Paulo', '12:20:00', '2023-05-05', 5);
+	
+	INSERT INTO EQUIPAMENTO (nome) VALUES
+	('Wi-Fi'),
+	('TV'),
+	('Ar Condicionado'),
+	('Banheiro Químico'),
+	('Carregador USB');
+	
+	INSERT INTO OnibusEquipamento (fk_ONIBUS_id, fk_EQUIPAMENTO_id) VALUES
+	(1, 1),
+	(1, 3),
+	(2, 2),
+	(3, 3),
+	(3, 4);
+	
+	
+	INSERT INTO ASSENTO (ocupado, FK_ONIBUS_id) VALUES
+	(true, 1),
+	(true, 2),
+	(false, 3),
+	(false, 4),
+	(true, 5);
+	
+	INSERT INTO PASSAGEM (n_assento, nome_passageiro, valor, FK_PESSOA_id, FK_PARADA_id, FK_ASSENTO_id, data) VALUES
+	(10, 'Passageiro 1', 50.00, 1, 1, 1, '2023-01-10'),
+	(5, 'Passageiro 2', 60.00, 2, 2, 2, '2023-02-15'),
+	(20, 'Passageiro 3', 70.00, 3, 3, 3, '2023-03-20'),
+	(15, 'Passageiro 4', 80.00, 4, 4, 4, '2023-04-05'),
+	(8, 'Passageiro 5', 90.00, 5, 5, 5, '2023-05-01');
+	
+	
+	INSERT INTO MotoristaOnibus (fk_PESSOA_id, fk_ONIBUS_id) VALUES
+	(1, 1),
+	(2, 2),
+	(3, 3),
+	(4, 4),
+	(5, 5);
+	
+	INSERT INTO ViagemParada (FK_VIAGEM_id, FK_PARADA_id) VALUES
+	(6, 1),
+	(6, 2),
+	(7, 3),
+	(8, 3),
+	(8, 4);
+
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Usa template da disciplina disponibilizado no Colab.<br>
