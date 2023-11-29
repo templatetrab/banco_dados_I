@@ -52,7 +52,8 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 
 
 ### 5.MODELO CONCEITUAL<br>
-![Conceitual](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/608e246f-b73e-4602-b88e-7ff339e5ec76?raw=true "Modelo Conceitual")
+![Modelo Conceitual](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/6ecf465b-7e90-497a-a6e2-62d4367e3289?raw=true "Modelo Conceitual")
+
 
 #### 5.1 Validação do Modelo Conceitual
     [Grupo01]: Gustavo, Cassiano e Henrique
@@ -115,7 +116,7 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 ># Marco de Entrega 01: Do item 1 até o item 5.2 (5 PTS) <br> 
 
 ### 6	MODELO LÓGICO<br>
-![logico_rodoviario](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/e0438d67-7857-4248-ae06-7a2499fb8697)
+![logico_rodoviario](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/bb7cc22f-4d72-4580-8f58-5280819b6745?raw=true "Modelo Lógico")
 
 
 ### 7	MODELO FÍSICO<br>
