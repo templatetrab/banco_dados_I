@@ -44,12 +44,11 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 
 > O sistema proposto deve ser capaz de fornecer dados financeiros, sobre rotas e viagens, embarque e desembarque nas paradas.
 
-- Relatório que mostre as paradas com maior embarque/desembarque. Deve ser filtrado por período de tempo, contendo a descrição da parada, a quantidade de onibus e o horário com maior índice;
-- Relatório das viagens com maior procura. Deve-se selecionar a quantidade de viagens que serão mostradas;
-- Relatório com o lucro mensal. Deve conter a quantidade de viagens realizadas, quantidade de passagens vendidas, valor total do mês selecionado. 
-- Relatório com as viagens que um determinado motorista realizou em um período de tempo, contendo seu nome, cpf e o id do onibus. 
+- Relatório com as paradas com maior frequência de ônibus;
+- Relatório de viagens com maior procura (mais assentos ocupados);
+- Relatório com o lucro das passagens por mês;
+- Relatório com a quantidade de assentos disponíveis por ônibus; 
 - Relatório com a média de quantidade de assentos vendidos em um período de tempo.
-
 
 ### 5.MODELO CONCEITUAL<br>
 ![Modelo Conceitual](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/6ecf465b-7e90-497a-a6e2-62d4367e3289?raw=true "Modelo Conceitual")
