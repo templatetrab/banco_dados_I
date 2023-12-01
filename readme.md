@@ -386,7 +386,7 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
-[Consultas no Google Colab](https://colab.research.google.com/drive/1RGLbLzFIXqOZYEm-xE7smhbFGcO3AFtO?usp=sharing)
+[Consultas no Google Colab](https://colab.research.google.com/drive/1RGLbLzFIXqOZYEm-xE7smhbFGcO3AFtO?usp=sharing) <br>
 Link para acesso: https://colab.research.google.com/drive/1RGLbLzFIXqOZYEm-xE7smhbFGcO3AFtO?usp=sharing
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
  
