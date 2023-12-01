@@ -51,7 +51,7 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 - Relatório com a média de quantidade de assentos vendidos em um período de tempo.
 
 ### 5.MODELO CONCEITUAL<br>
-![Modelo Conceitual](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/6ecf465b-7e90-497a-a6e2-62d4367e3289?raw=true "Modelo Conceitual")
+![Modelo Conceitual](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/b86e8542-e28b-4685-8c0b-f18181766029?raw=true "Modelo Conceitual")
 
 
 #### 5.1 Validação do Modelo Conceitual
@@ -61,14 +61,14 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 #### 5.2 Descrição dos dados 
 	Pessoa: Uma tabela que armazena informações relacionadas a indivíduos.
 	ID (Chave Primária): Identificador único da pesso;
-	nome: Nome completo da pessoa;
+	nome_completo: Nome completo da pessoa;
 	cpf: Número de Cadastro de Pessoa Física da pessoa;
 	dt_nasc: Data de nascimento da pessoa.
 
- 	Tipo_contato: Uma tabela que armazena os diferentes tipos de contato das pessoas
+ 	Tipo_contato: Uma tabela que armazena os os tipos de contato
 	ID (Chave Primária): Identificador único do contato;
- 	descrição: Descrição do contato.
-	
+ 	descrição: Descrição do contato.	
+ 
 	Motorista: Uma tabela que contém informações sobre motoristas dos ônibus.
 	categoria_cnh: Categoria da Carteira Nacional de Habilitação (CNH) do motorista;
 	validade_cnh: Data de validade da CNH do motorista;
@@ -77,14 +77,12 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	Passagem: Uma tabela que registra informações sobre passagens de ônibus.
 	ID (Chave Primária): Identificador único da passagem.
 	n_assento: Número do assento associado à passagem.
-	nome_passageiro: Nome do passageiro que adquiriu a passagem.
-	origem: Cidade de origem da viagem.
-	destino: Cidade de destino ou parada da viagem.
 	valor: Valor da passagem.
+ 	data: data da passagem.
 	
 	Assento: Tabela que armazena informações sobre os assentos dos ônibus.
 	ID (Chave Primária): Identificador único do assento;
-	estado: Estado atual do assento (ocupado ou desocupado).
+	ocupado: informa se o assento esta ocupado ou desocupado no momento.
 	
 	Ônibus: Uma tabela que contém informações sobre os ônibus utilizados nas viagens.
 	ID (Chave Primária): Identificador único do ônibus.
@@ -97,11 +95,8 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	distancia: Distância entre a cidade de origem e o destino da viagem.
 	embarque: Local de embarque da viagem, identificado pelo nome da cidade.
 	desembarque: Local de destino da viagem, identificado pelo nome da cidade.
-
-	Rota: Tabela que contém toda a rota percorrida pelo ônibus
- 	ID (Chave Primária): Identificador único daquela rota específica
-  	destino: Local de destino da viagem
-   	drigem: Local de Origem da viagem
+ 	hrPartida: Horário de partida.
+  	dataPartida: data da partida.
  
 	Parada: Tabela que contém informações sobre as paradas de ônibus durante a viagem.
 	ID (Chave Primária): Identificador único da parada.
@@ -109,14 +104,11 @@ Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do
 	bairro: Nome do bairro da parada (se aplicável).
 	nome: Nome da parada em si.
 
- 	Reserva: Tabela que contem informações sobre a reserva
-  	Data: Data da reserva
 
 ># Marco de Entrega 01: Do item 1 até o item 5.2 (5 PTS) <br> 
 
 ### 6	MODELO LÓGICO<br>
-![logico_rodoviario](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/bb7cc22f-4d72-4580-8f58-5280819b6745?raw=true "Modelo Lógico")
-
+![logico_rodoviario](https://github.com/ericklyl/TrabalhoBD1/assets/72893552/3ff668d4-1d51-4ddf-a2bb-5807f8edd573?raw=true "Modelo Lógico")
 
 ### 7	MODELO FÍSICO<br>
 		
