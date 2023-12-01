@@ -14,23 +14,19 @@ João Marcos Pimentel:trabalhos.jmr25@gmail.com<br>
 
 ### 2.MINI-MUNDO<br>
 
-A empresa de viagens intermunicipal tem vários ônibus que fazem rotas diferentes. Os ônibus devem conter  número do chassi, quantidade de assentos, tamanho (micro-ônibus, ônibus), equipamentos disponíveis (ar condicionado, internet, banheiro) e tipos de leito (executivo, semi leito, leito cama e convencional).
+O sistema rodoviário é composto por diversas entidades inter-relacionadas para gerenciar informações e operações. A entidade principal é a Pessoa, que possui atributos como ID (Identificador único), nome completo, CPF e data de nascimento. Além disso, existem os Tipos de Contato, que são descritos por uma entidade separada, cada um identificado por um ID único e uma descrição específica.
 
-Cada viagem de um ônibus tem a origem e o destino, o horário de embarque, a distância da viagem (em km), e o tempo (em horas).
+Os motoristas envolvidos no sistema são representados pela entidade Motorista. Cada motorista possui uma categoria de CNH, uma data de validade para sua habilitação e um salário. Os motoristas são vinculados à entidade Pessoa através de uma relação, onde o ID de Pessoa é usado para identificar cada motorista.
 
-Cada viagem tem várias paradas contendo nome, cidade e bairro, onde podem embarcar ou desembarcar passageiros.
+As viagens são centrais no sistema e são representadas pela entidade Viagem. Cada viagem é caracterizada por um ID único, tempo de duração, distância percorrida, locais de embarque e desembarque, horário e data de partida. As viagens são realizadas utilizando Ônibus, identificados por um ID e possuindo atributos como tipo de leito e número de chassi.
 
-A passagem deve conter o número do assento, o nome do passageiro, a origem e o destino identificando a parada, se for o caso, ou o destino final. A passagem só pode ser relacionada a um assento e o assento daquela viagem, só pode ser relacionado àquela passagem.
+Dentro de uma viagem, há as Paradas. Cada parada é identificada por um ID, possui informações sobre a cidade, bairro (se aplicável) e nome da parada em si. As paradas estão relacionadas às viagens através do ID da viagem.
 
-Cada assento deve conter o código, o ônibus ao qual ele pertence, e o estado (ocupado, desocupado).
+As Passagens estão associadas às pessoas que as adquirem. Cada passagem tem um número de assento, um valor e uma data específica. Estas estão conectadas à entidade Pessoa através do ID de Pessoa.
 
-A empresa precisa acompanhar a venda de passagens e saber os lugares que estarão vagos em cada parada de um determinado ônibus da sua frota.
+Os Assentos dos ônibus são gerenciados pela entidade correspondente. Cada assento possui um ID único e uma informação que indica se está ocupado ou desocupado. Eles são relacionados aos ônibus através do ID do ônibus.
 
-A venda das passagens deve ser realizada através da plataforma de terceiros, principalmente a plataforma buser, que será integrada ao sistema da empresa de viagens. 
-
-
-
-
+Essas entidades e suas inter-relações formam a estrutura básica do sistema rodoviário, permitindo o gerenciamento de passageiros, motoristas, viagens, ônibus, paradas e assentos, proporcionando um funcionamento integrado para todas as operações relacionadas ao transporte rodoviário.
 
 Em relação aos requisitos do sistemas, temos que: o sistema deve controlar os ônibus, rotas, viagens, paradas, passagens, vendas e acessos de cada usuário; <br>
 Sobre as Regras de Negócio deve-se destacar: o sistema deve limitar o acesso do vendedor à somente vendas, diretor financeiro apenas ao histórico de vendas/relatórios financeiros, deve relacionar uma passagem a um único assento e ainda deve permitir que o destino de uma passagem seja uma parada na rota do ônibus.
